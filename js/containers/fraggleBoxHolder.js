@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Row, Col, Grid, Well } from 'react-bootstrap';
 import NGLView from '../components/nglComponents';
-import UpdateOrientation from '../components/updateOrientation';
+import NglViewerControls from '../components/nglViewerControls';
 import { Route } from 'react-router-dom';
 import * as nglLoadActions from '../actions/nglLoadActions';
 import ModalLoadingScreen from '../components/modalLoadingScreen';
@@ -25,14 +25,14 @@ class FraggleBox extends Component {
   render() {
       return (
           <Row >
-              <Col xs={2} md={2} >
+              <Col xs={3} md={3} >
                   <NGLView div_id="summary_view" height="400px"/>
               </Col>
-              <Col xs={10} md={10} >
+              <Col xs={9} md={9} >
                   <NGLView div_id="major_view" height="800px"/>
               </Col>
-              <UpdateOrientation />
-              <ModalLoadingScreen />
+              <NglViewerControls/>
+              <ModalLoadingScreen/>
           </Row>
       )
     }

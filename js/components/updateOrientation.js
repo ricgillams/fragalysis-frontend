@@ -4,7 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import * as nglLoadActions from '../actions/nglLoadActions'
-import { Button, Well, Col, Row } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 
 export class UpdateOrientation extends React.Component {
@@ -48,7 +48,6 @@ export class UpdateOrientation extends React.Component {
     }
 
     postToServer() {
-        // Refresh orientation
         for(var key in this.props.nglOrientations){
             this.props.setOrientation(key,"REFRESH")
         }
@@ -97,7 +96,7 @@ export class UpdateOrientation extends React.Component {
 
     render() {
         return <div>
-            <Button bsSize="large" bsStyle="success" onClick={this.postToServer}>Save NGL Orientation</Button>
+            <Button bsSize="large" bsStyle="success" onClick={this.postToServer}>Save view in Fragglebox</Button>
            </div>
     }
 }
