@@ -76,7 +76,8 @@ export class UpdateOrientation extends React.Component {
             var formattedState = {
                 uuid: uuidv4(),
                 title: TITLE,
-                scene: JSON.stringify(JSON.stringify(this.props.nglOrientations))
+                scene: JSON.stringify(JSON.stringify(this.props.nglOrientations))+
+                JSON.stringify(JSON.stringify(this.props.molecule_list))
             };
             fetch("/api/viewscene/", {
                 method: "post",
@@ -105,13 +106,15 @@ function mapStateToProps(state) {
   return {
       uuid: state.nglReducers.uuid,
       nglOrientations: state.nglReducers.nglOrientations,
-      loadingState: state.nglReducers.loadingState
+      loadingState: state.nglReducers.loadingState,
+      molecule_list: state.apiReducers.molecule_list,
+
   }
 }
 const mapDispatchToProps = {
     loadObject: nglLoadActions.loadObject,
     setNGLOrientation: nglLoadActions.setNGLOrientation,
     setOrientation: nglLoadActions.setOrientation,
-    setLoadingState: nglLoadActions.setLoadingState
+    setLoadingState: nglLoadActions.setLoadingState,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
