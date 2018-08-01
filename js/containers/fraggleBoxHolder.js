@@ -41,15 +41,6 @@ class FraggleBox extends Component {
                   <SummaryView />
                   <HotspotList />
               </Col>
-          </Row>
-          <Row >
-              <Col xs={3} md={3} >
-                  <NGLView div_id="summary_view" height="400px"/>
-              </Col>
-              <Col xs={9} md={9} >
-                  <NGLView div_id="major_view" height="800px"/>
-              </Col>
-              <NglViewerControls/>
               <ModalLoadingScreen/>
           </Row>
       )
