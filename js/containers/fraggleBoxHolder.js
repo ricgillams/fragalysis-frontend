@@ -23,22 +23,22 @@ class FraggleBox extends Component {
 
     constructor(props) {
         super(props)
-        // this.updateTarget = this.updateTarget.bind(this);
+        this.updateTarget = this.updateTarget.bind(this);
     }
-    // updateTarget(){
-    //     var target = this.props.match.params.target;
-    //     // Get from the REST API
-    //     fetch(window.location.protocol + "//" + window.location.host+"/api/targets/?title="+target)
-    //         .then(response => response.json())
-    //         // Set the target id from the json
-    //         .then(json => this.props.setTargetOn(json["results"][0].id));
-    // }
+    updateTarget(){
+        var target = this.props.match.params.target;
+        // Get from the REST API
+        fetch(window.location.protocol + "//" + window.location.host+"/api/targets/?title="+target)
+            .then(response => response.json())
+            // Set the target id from the json
+            .then(json => this.props.setTargetOn(json["results"][0].id));
+    }
 
     componentDidMount(){
         var uuid = this.props.match.params.uuid;
         this.props.setUuid(uuid);
         // this.props.setStageColor
-        // this.updateTarget();
+        this.updateTarget();
     }
 
     render() {
