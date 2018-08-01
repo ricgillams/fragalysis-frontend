@@ -37,6 +37,8 @@ class FraggleBox extends Component {
     componentDidMount(){
         var uuid = this.props.match.params.uuid;
         this.props.setUuid(uuid);
+        this.props.setStageColor
+        this.updateTarget();
     }
 
     render() {
@@ -66,6 +68,7 @@ class FraggleBox extends Component {
 
 function mapStateToProps(state) {
   return {
+      setStageColor: nglLoadActions.setStageColor,
   }
 }
 const mapDispatchToProps = {
