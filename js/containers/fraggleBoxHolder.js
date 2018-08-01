@@ -37,7 +37,7 @@ class FraggleBox extends Component {
     componentDidMount(){
         var uuid = this.props.match.params.uuid;
         this.props.setUuid(uuid);
-        this.props.setStageColor
+        // this.props.setStageColor
         // this.updateTarget();
     }
 
