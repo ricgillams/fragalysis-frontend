@@ -25,6 +25,24 @@ class FraggleBox extends Component {
   render() {
       return (
           <Row >
+              <Col xs={0} md={0}>
+                  <MolGroupList />
+              </Col>
+              <Col xs={3} md={3}>
+                  <NGLView div_id="summary_view" height="200px"/>
+                  <MolGroupSlider />
+                  <MoleculeList style={{overflow:scroll}}/>
+              </Col>
+              <Col xs={5} md={5} >
+                  <NGLView div_id="major_view" height="600px"/>
+                  <NglViewerControls />
+              </Col>
+              <Col xs={4} md={4}>
+                  <SummaryView />
+                  <HotspotList />
+              </Col>
+          </Row>
+          <Row >
               <Col xs={3} md={3} >
                   <NGLView div_id="summary_view" height="400px"/>
               </Col>
