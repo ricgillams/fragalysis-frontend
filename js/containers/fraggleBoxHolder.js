@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Row, Col, Grid, Well } from 'react-bootstrap';
+import { Row, Col, Grid, Well, Image } from 'react-bootstrap';
 import MolGroupList from '../components/molGroupList';
 import MoleculeList from '../components/moleculeList';
 import MolGroupSlider from '../components/molGroupSlider'
