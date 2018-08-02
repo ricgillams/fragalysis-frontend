@@ -32,7 +32,7 @@ export class UpdateOrientation extends React.Component {
             var targetOn = JSON.parse(JSON.parse(myJson.scene)).targetOn;
             this.props.setTargetOn(targetOn);
             var molGroupOn = JSON.parse(JSON.parse(myJson.scene)).molGroupOn;
-            this.props.fbSetMolGroupOn(targetOn);
+            this.props.setMolGroupOn(targetOn);
         }
     };
 
@@ -122,6 +122,6 @@ const mapDispatchToProps = {
     setOrientation: nglLoadActions.setOrientation,
     setLoadingState: nglLoadActions.setLoadingState,
     setTargetOn: apiActions.setTargetOn,
-    fbSetMolGroupOn: apiActions.fbSetMolGroupOn
+    setMolGroupOn: apiActions.setMolGroupOn
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
