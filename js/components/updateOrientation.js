@@ -30,7 +30,7 @@ export class UpdateOrientation extends React.Component {
             }
             this.props.setNGLOrientation(div_id, orientation);
             var molGroupOn = JSON.parse(JSON.parse(myJson.scene)).molGroupOn;
-            this.props.setMolGroupOn(molGroupOn);
+            // this.props.setMolGroupOn(molGroupOn);
         }
     };
 
