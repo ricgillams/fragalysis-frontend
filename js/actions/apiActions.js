@@ -80,12 +80,11 @@ export const setPanddaEventOn = function (pandda_event_id){
     }
 }
 
-export const fbSetMolGroupOn = function (mol_group_on, xcom, ycom zcom){
+export const fbSetMolGroupOn = function (mol_group_on){
     console.log("ACTIONS: "+ mol_group_on)
     return {
         type: FB_SET_MOL_GROUP_ON,
         mol_group_on: mol_group_on,
-
     }
 }
 
