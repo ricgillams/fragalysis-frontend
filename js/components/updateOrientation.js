@@ -29,8 +29,8 @@ export class UpdateOrientation extends React.Component {
                 this.props.loadObject(components[component]);
             }
             this.props.setNGLOrientation(div_id, orientation);
-            // var moleculeList = JSON.parse(myJson.moleculeList);
-            // this.props.setMoleculeList(moleculeList);
+            var moleculeList = JSON.parse(JSON.parse(myJson.scene)).moleculeList;
+            this.props.setMoleculeList(moleculeList);
         }
     };
 
