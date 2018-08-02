@@ -74,7 +74,7 @@ export class UpdateOrientation extends React.Component {
         }
         if (hasBeenRefreshed==true){
             // Post the data to the server as usual
-            fullState = Object.assign(this.props.nglOrientations, {moleculeList: this.props.molecule_list})
+            var fullState = Object.assign(this.props.nglOrientations, {moleculeList: this.props.molecule_list})
             const uuidv4 = require('uuid/v4');
             var TITLE = 'need to define title';
             var formattedState = {
