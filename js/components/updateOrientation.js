@@ -29,8 +29,8 @@ export class UpdateOrientation extends React.Component {
                 this.props.loadObject(components[component]);
             }
             this.props.setNGLOrientation(div_id, orientation);
-            var moleculeList = JSON.parse(JSON.parse(myJson.scene)).moleculeList;
-            this.props.setMoleculeList(moleculeList);
+            var molGroupOn = JSON.parse(JSON.parse(myJson.scene)).molGroupOn;
+            this.props.setMolGroupOn(molGroupOn);
         }
     };
 
@@ -74,7 +74,7 @@ export class UpdateOrientation extends React.Component {
         }
         if (hasBeenRefreshed==true){
             // Post the data to the server as usual
-            var fullState = Object.assign(this.props.nglOrientations, {moleculeList: this.props.molecule_list})
+            var fullState = Object.assign(this.props.nglOrientations, {molGroupOn: this.props.mol_group_on})
             const uuidv4 = require('uuid/v4');
             var TITLE = 'need to define title';
             var formattedState = {
