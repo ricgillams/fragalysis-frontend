@@ -118,6 +118,6 @@ const mapDispatchToProps = {
     setNGLOrientation: nglLoadActions.setNGLOrientation,
     setOrientation: nglLoadActions.setOrientation,
     setLoadingState: nglLoadActions.setLoadingState,
-    setMoleculeList: apiActions.setMoleculeList,
+    setMolGroupOn: apiActions.setMolGroupOn,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
