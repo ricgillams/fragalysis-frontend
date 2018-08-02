@@ -30,7 +30,7 @@ export class UpdateOrientation extends React.Component {
             }
             this.props.setNGLOrientation(div_id, orientation);
             var targetOn = JSON.parse(JSON.parse(myJson.scene)).targetOn;
-            // this.props.setTargetOn(targetOn);
+            this.props.setTargetOn(targetOn);
         }
     };
 
