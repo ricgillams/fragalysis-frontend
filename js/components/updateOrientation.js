@@ -31,6 +31,8 @@ export class UpdateOrientation extends React.Component {
             this.props.setNGLOrientation(div_id, orientation);
             var targetOn = JSON.parse(JSON.parse(myJson.scene)).targetOn;
             this.props.setTargetOn(targetOn);
+            var molGroupList = JSON.parse(JSON.parse(myJson.scene)).molGroupList;
+            this.props.setMolGroupList(molGroupList);
             var molGroupOn = JSON.parse(JSON.parse(myJson.scene)).molGroupOn;
             this.props.setMolGroupOn(molGroupOn);
         }
@@ -76,7 +78,7 @@ export class UpdateOrientation extends React.Component {
         }
         if (hasBeenRefreshed==true){
             // Post the data to the server as usual
-            var fullState = Object.assign(this.props.nglOrientations, {targetOn: this.props.target_on}, {molGroupOn: this.props.mol_group_on})
+            var fullState = Object.assign(this.props.nglOrientations, {targetOn: this.props.target_on}, {molGroupList: this.mol_group_list}, {molGroupOn: this.props.mol_group_on})
             const uuidv4 = require('uuid/v4');
             var TITLE = 'need to define title';
             var formattedState = {
@@ -113,7 +115,8 @@ function mapStateToProps(state) {
       nglOrientations: state.nglReducers.nglOrientations,
       loadingState: state.nglReducers.loadingState,
       target_on: state.apiReducers.target_on,
-      mol_group_on: state.apiReducers.mol_group_on
+      mol_group_on: state.apiReducers.mol_group_on,
+      mol_group_list: state.apiReducers.mol_group_list,
   }
 }
 const mapDispatchToProps = {
@@ -122,6 +125,7 @@ const mapDispatchToProps = {
     setOrientation: nglLoadActions.setOrientation,
     setLoadingState: nglLoadActions.setLoadingState,
     setTargetOn: apiActions.setTargetOn,
-    setMolGroupOn: apiActions.setMolGroupOn
+    setMolGroupOn: apiActions.setMolGroupOn,
+    setMolGroupList: apiActions.setMolGroupList,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
