@@ -110,7 +110,7 @@ function mapStateToProps(state) {
       uuid: state.nglReducers.uuid,
       nglOrientations: state.nglReducers.nglOrientations,
       loadingState: state.nglReducers.loadingState,
-      molecule_list: state.apiReducers.molecule_list,
+      mol_group_on: state.apiReducers.mol_group_on,
   }
 }
 const mapDispatchToProps = {
