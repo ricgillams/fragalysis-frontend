@@ -4,6 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import * as nglLoadActions from '../actions/nglLoadActions'
+import * as apiActions from '../actions/apiActions'
 import { Button } from 'react-bootstrap'
 
 
@@ -28,6 +29,8 @@ export class UpdateOrientation extends React.Component {
                 this.props.loadObject(components[component]);
             }
             this.props.setNGLOrientation(div_id, orientation);
+            var moleculeList = JSON.parse(JSON.parse(myJson.moleculeList));
+            this.props.setMoleculeList(moleculeList);
         }
     };
 
@@ -76,8 +79,8 @@ export class UpdateOrientation extends React.Component {
             var formattedState = {
                 uuid: uuidv4(),
                 title: TITLE,
-                scene: JSON.stringify(JSON.stringify(this.props.nglOrientations))+
-                JSON.stringify(JSON.stringify(this.props.molecule_list))
+                scene: JSON.stringify(JSON.stringify(this.props.nglOrientations)),
+                moleculeList: JSON.stringify(JSON.stringify(this.props.molecule_list))
             };
             fetch("/api/viewscene/", {
                 method: "post",
@@ -108,7 +111,6 @@ function mapStateToProps(state) {
       nglOrientations: state.nglReducers.nglOrientations,
       loadingState: state.nglReducers.loadingState,
       molecule_list: state.apiReducers.molecule_list,
-
   }
 }
 const mapDispatchToProps = {
@@ -116,5 +118,6 @@ const mapDispatchToProps = {
     setNGLOrientation: nglLoadActions.setNGLOrientation,
     setOrientation: nglLoadActions.setOrientation,
     setLoadingState: nglLoadActions.setLoadingState,
+    setMoleculeList: apiActions.setMoleculeList,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
