@@ -33,8 +33,8 @@ export class UpdateOrientation extends React.Component {
             this.props.setTargetOn(targetOn);
             var molGroupList = JSON.parse(JSON.parse(myJson.scene)).molGroupList;
             // this.props.setMolGroupList(molGroupList);
-            var mol_group_on = JSON.parse(JSON.parse(myJson.scene)).mol_group_on;
-            this.props.setMolGroupOn(mol_group_on);
+            var mol_group_id = JSON.parse(JSON.parse(myJson.scene)).mol_group_id;
+            this.props.setMolGroupOn(mol_group_id);
         }
     };
 
@@ -78,7 +78,7 @@ export class UpdateOrientation extends React.Component {
         }
         if (hasBeenRefreshed==true){
             // Post the data to the server as usual
-            var fullState = Object.assign(this.props.nglOrientations, {targetOn: this.props.target_on}, {molGroupList: this.props.mol_group_list}, {mol_group_on: this.props.mol_group_on})
+            var fullState = Object.assign(this.props.nglOrientations, {targetOn: this.props.target_on}, {molGroupList: this.props.mol_group_list}, {mol_group_id: this.props.mol_group_on})
             const uuidv4 = require('uuid/v4');
             var TITLE = 'need to define title';
             var formattedState = {
