@@ -32,7 +32,7 @@ export class UpdateOrientation extends React.Component {
             var targetOn = JSON.parse(JSON.parse(myJson.scene)).targetOn;
             this.props.setTargetOn(targetOn);
             var molGroupList = JSON.parse(JSON.parse(myJson.scene)).molGroupList;
-            this.props.setMolGroupList(molGroupList);
+            // this.props.setMolGroupList(molGroupList);
             var molGroupOn = JSON.parse(JSON.parse(myJson.scene)).molGroupOn;
             // this.props.setMolGroupOn(molGroupOn);
         }
