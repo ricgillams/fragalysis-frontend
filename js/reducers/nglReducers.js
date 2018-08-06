@@ -9,7 +9,6 @@ const INITIALSTATE = {
     nglOrientations: {},
     visible: true,
     uuid: "UNSET",
-    updateState: "UNSET",
     interactions: true,
     color: "blue",
     style: "xstick",
@@ -156,11 +155,6 @@ export default function nglReducers(state = INITIALSTATE, action) {
         case actions.SET_UUID:
             return Object.assign({}, state, {
                 uuid: action.uuid
-            });
-
-        case actions.SET_UPDATE_STATE:
-            return Object.assign({}, state, {
-                updateState: action.updateState
             });
 
         case actions.SET_LOADING_STATE:

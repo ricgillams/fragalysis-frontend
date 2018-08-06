@@ -40,7 +40,6 @@ export class UpdateOrientation extends React.Component {
             // TODO Rick - please set other elements of state with set$ITEM functions
 
             // TODO Rick please write this function
-            this.props.setUpdateState("SET");
         }
     };
 
@@ -67,50 +66,44 @@ export class UpdateOrientation extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.props.updateState == "UNSET") {
-            var hasBeenRefreshed = true
-            if (this.props.uuid != "UNSET" && this.props.updateState == "UNSET") {
-                fetch("/api/viewscene/?uuid=" + this.props.uuid)
-                    .then(function (response) {
-                        return response.json();
-                    }).then(json => this.handleJson(json.results[0]))
-            }
-            for (var key in this.props.nglOrientations) {
-                if (this.props.nglOrientations[key] == "REFRESH") {
-                    hasBeenRefreshed = false;
-                }
-                if (this.props.nglOrientations[key] == "STARTED") {
-                    hasBeenRefreshed = false;
-                }
-            }
-            if (hasBeenRefreshed == true) {
-                // Post the data to the server as usual
-                // TODO Rick - please add different variables to this dictionary. Save as much of the state as you can please.
-                var store = JSON.stringify(getStore().getState())
-                // var ngl_json = JSON.stringify(this.props.nglReducers)
-                var fullState = {"state": store}
-                // var fullState = Object.assign(this.props.nglReducers.nglOrientations, {nglReducers: this.props.nglReducers}, {apiReducers: this.props.apiReducers}, {selectionReducers: this.props.selectionReducers})
-                const uuidv4 = require('uuid/v4');
-                var TITLE = 'need to define title';
-                var formattedState = {
-                    uuid: uuidv4(),
-                    title: TITLE,
-                    scene: JSON.stringify(JSON.stringify(fullState))
-                };
-                fetch("/api/viewscene/", {
-                    method: "post",
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formattedState)
-                }).then(function (response) {
+        var hasBeenRefreshed = true
+        if (this.props.uuid != "UNSET") {
+            fetch("/api/viewscene/?uuid=" + this.props.uuid)
+                .then(function (response) {
                     return response.json();
-                }).then(function (myJson) {
-                    alert("VIEW SAVED - send this link: " +
-                        window.location.protocol + "//" + window.location.hostname + "/viewer/react/fragglebox/" + myJson.uuid.toString())
-                });
+                }).then(json => this.handleJson(json.results[0]))
+        }
+        for (var key in this.props.nglOrientations) {
+            if (this.props.nglOrientations[key] == "REFRESH") {
+                hasBeenRefreshed = false;
             }
+            if (this.props.nglOrientations[key] == "STARTED") {
+                hasBeenRefreshed = false;
+            }
+        }
+        if (hasBeenRefreshed == true) {
+            var store = JSON.stringify(getStore().getState())
+            var fullState = {"state": store}
+            const uuidv4 = require('uuid/v4');
+            var TITLE = 'need to define title';
+            var formattedState = {
+                uuid: uuidv4(),
+                title: TITLE,
+                scene: JSON.stringify(JSON.stringify(fullState))
+            };
+            fetch("/api/viewscene/", {
+                method: "post",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formattedState)
+            }).then(function (response) {
+                return response.json();
+            }).then(function (myJson) {
+                alert("VIEW SAVED - send this link: " +
+                    window.location.protocol + "//" + window.location.hostname + "/viewer/react/fragglebox/" + myJson.uuid.toString())
+            });
         }
     }
 
@@ -125,7 +118,6 @@ function mapStateToProps(state) {
   return {
       uuid: state.nglReducers.uuid,
       nglOrientations: state.nglReducers.nglOrientations,
-      updateState: state.nglReducers.updateState
   }
 }
 const mapDispatchToProps = {
