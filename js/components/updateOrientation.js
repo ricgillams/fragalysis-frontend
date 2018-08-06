@@ -78,7 +78,7 @@ export class UpdateOrientation extends React.Component {
                 hasBeenRefreshed = false;
             }
             if(this.props.nglOrientations[key]=="STARTED"){
-                hasBeenRefreshed = false
+                hasBeenRefreshed = false;
             }
         }
         if (hasBeenRefreshed==true){
@@ -131,5 +131,6 @@ const mapDispatchToProps = {
     setTargetOn: apiActions.setTargetOn,
     setMolGroupOn: apiActions.setMolGroupOn,
     setMolGroupList: apiActions.setMolGroupList,
+    setUuid:nglLoadActions.setUuid
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
