@@ -66,10 +66,10 @@ export class UpdateOrientation extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.props.nglReducers.updateState == "UNSET") {
+        if (this.props.updateState == "UNSET") {
             var hasBeenRefreshed = true
-            if (this.props.nglReducers.uuid != "UNSET" && this.props.nglReducers.updateState == "UNSET") {
-                fetch("/api/viewscene/?uuid=" + this.props.nglReducers.uuid)
+            if (this.props.uuid != "UNSET" && this.props.updateState == "UNSET") {
+                fetch("/api/viewscene/?uuid=" + this.props.uuid)
                     .then(function (response) {
                         return response.json();
                     }).then(json => this.handleJson(json.results[0]))
@@ -124,6 +124,8 @@ function mapStateToProps(state) {
       nglReducers: state.nglReducers,
       apiReducers: state.apiReducers,
       selectionReducers: state.selectionReducers,
+      uuid: state.nglReducers.uuid,
+      updateState: state.nglReducers.updateState
   }
 }
 const mapDispatchToProps = {
