@@ -84,7 +84,7 @@ export class UpdateOrientation extends React.Component {
         if (hasBeenRefreshed==true){
             // Post the data to the server as usual
             // TODO Rick - please add different variables to this dictionary. Save as much of the state as you can please.
-            var fullState = Object.assign({},{apiReducers: this.props.apiReducers, apiReducers: this.props.apiReducers, selectionReducers: this.props.selectionReducers})
+            var fullState = Object.assign(this.nglReducers.nglOrientations, {apiReducers: this.props.apiReducers, apiReducers: this.props.apiReducers, selectionReducers: this.props.selectionReducers})
             const uuidv4 = require('uuid/v4');
             var TITLE = 'need to define title';
             var formattedState = {
