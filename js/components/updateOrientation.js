@@ -31,12 +31,12 @@ export class UpdateOrientation extends React.Component {
                 this.props.loadObject(components[component]);
             }
             this.props.setNGLOrientation(div_id, orientation);
-            var targetOn = json_of_view.targetOn;
+            var targetOn = jsonOfView.apiReducers.target_on;
             this.props.setTargetOn(targetOn);
-            var molGroupList = json_of_view.molGroupList;
+            var molGroupList = jsonOfView.apiReducers.mol_group_list;
             this.props.setMolGroupList(molGroupList);
-            var mol_group_id = json_of_view.mol_group_id;
-            this.props.setMolGroupOn(mol_group_id);
+            var molGroupOn = jsonOfView.apiReducers.mol_group_on;
+            this.props.setMolGroupOn(molGroupOn);
             // TODO Rick - please set other elements of state with set$ITEM functions
 
             // TODO Rick please write this function
