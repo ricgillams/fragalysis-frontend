@@ -121,9 +121,9 @@ export class UpdateOrientation extends React.Component {
 
 function mapStateToProps(state) {
   return {
-      // nglReducers: state.nglReducers,
-      // apiReducers: state.apiReducers,
-      // selectionReducers: state.selectionReducers,
+      nglReducers: state.nglReducers,
+      apiReducers: state.apiReducers,
+      selectionReducers: state.selectionReducers,
       uuid: state.nglReducers.uuid,
       updateState: state.nglReducers.updateState
   }
