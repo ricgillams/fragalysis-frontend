@@ -33,8 +33,6 @@ export class UpdateOrientation extends React.Component {
             this.props.setNGLOrientation(div_id, orientation);
             var targetOn = jsonOfView.apiReducers.target_on;
             this.props.setTargetOn(targetOn);
-            var molGroupList = jsonOfView.apiReducers.mol_group_list;
-            this.props.setMolGroupList(molGroupList);
             var molGroupOn = jsonOfView.apiReducers.mol_group_on;
             this.props.setMolGroupOn(molGroupOn);
             var molGroupList = jsonOfView.apiReducers.mol_group_list;
