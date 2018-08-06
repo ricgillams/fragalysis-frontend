@@ -22,15 +22,15 @@ export class UpdateOrientation extends React.Component {
         if(myJson.scene==undefined){
             return;
         }
+        var jsonOfView = JSON.parse(JSON.parse(JSON.parse(myJson.scene)).state);
         var myOrientDict = JSON.parse(JSON.parse(JSON.parse(myJson.scene)).state).nglReducers.nglOrientations;
-        for(var div_id in myorientDict){
-            var orientation = myPreDict[div_id]["orientation"];
-            var components = myPreDict[div_id]["components"];
+        for(var div_id in myOrientDict){
+            var orientation = myOrientDict[div_id]["orientation"];
+            var components = myOrientDict[div_id]["components"];
             for (var component in components){
                 this.props.loadObject(components[component]);
             }
             this.props.setNGLOrientation(div_id, orientation);
-            var json_of_view = JSON.parse(JSON.parse(myJson.scene));
             var targetOn = json_of_view.targetOn;
             this.props.setTargetOn(targetOn);
             var molGroupList = json_of_view.molGroupList;
