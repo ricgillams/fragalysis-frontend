@@ -128,6 +128,9 @@ class SummaryView extends React.Component{
         this.download_file(csvContent,"follow_ups.csv");
     }
 
+
+
+
     getToBuyByVect(input_dict){
         var output_dict = {}
         for(var key in input_dict){

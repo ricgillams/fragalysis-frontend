@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import * as nglLoadActions from '../actions/nglLoadActions'
 import * as apiActions from '../actions/apiActions'
 import { Button } from 'react-bootstrap'
+import {getStore, saveStore} from "../containers/globalStore";
 
 
 export class UpdateOrientation extends React.Component {
@@ -85,6 +86,7 @@ export class UpdateOrientation extends React.Component {
             if (hasBeenRefreshed == true) {
                 // Post the data to the server as usual
                 // TODO Rick - please add different variables to this dictionary. Save as much of the state as you can please.
+                var store = getStore()
                 // var ngl_json = JSON.stringify(this.props.nglReducers)
                 var fullState = Object.assign({},{nglReducers: "kdkdk"})
                 // var fullState = Object.assign(this.props.nglReducers.nglOrientations, {nglReducers: this.props.nglReducers}, {apiReducers: this.props.apiReducers}, {selectionReducers: this.props.selectionReducers})
@@ -121,9 +123,6 @@ export class UpdateOrientation extends React.Component {
 
 function mapStateToProps(state) {
   return {
-      nglReducers: state.nglReducers,
-      apiReducers: state.apiReducers,
-      selectionReducers: state.selectionReducers,
       uuid: state.nglReducers.uuid,
       updateState: state.nglReducers.updateState
   }
