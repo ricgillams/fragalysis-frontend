@@ -67,7 +67,7 @@ export class UpdateOrientation extends React.Component {
 
     componentDidUpdate() {
         var hasBeenRefreshed = true
-        if(this.props.uuid!="UNSET" && this.props.updateState!="UNSET"){
+        if(this.props.uuid!="UNSET" && this.props.updateState=="UNSET"){
             fetch("/api/viewscene/?uuid="+this.props.uuid)
                 .then(function(response) {
                     return response.json();
