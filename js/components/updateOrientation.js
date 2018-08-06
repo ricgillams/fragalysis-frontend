@@ -39,7 +39,7 @@ export class UpdateOrientation extends React.Component {
             // TODO Rick - please set other elements of state with set$ITEM functions
 
             // TODO Rick please write this function
-            this.props.setUpdateState("SET");
+            this.props.setUpdateState("UNSET");
         }
     };
 
@@ -67,7 +67,8 @@ export class UpdateOrientation extends React.Component {
 
     componentDidUpdate() {
         var hasBeenRefreshed = true
-        if(this.props.uuid!="UNSET" && this.props.updateState!="SET"){
+        if(this.props.uuid!="UNSET" && this.props.updateState!="UNSET"){
+            this.props.setUpdateState("UNSET");
             fetch("/api/viewscene/?uuid="+this.props.uuid)
                 .then(function(response) {
                     return response.json();
