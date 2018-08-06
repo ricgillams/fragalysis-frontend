@@ -29,12 +29,17 @@ export class UpdateOrientation extends React.Component {
                 this.props.loadObject(components[component]);
             }
             this.props.setNGLOrientation(div_id, orientation);
-            var targetOn = JSON.parse(JSON.parse(myJson.scene)).targetOn;
+            var json_of_view = JSON.parse(JSON.parse(myJson.scene));
+            var targetOn = json_of_view.targetOn;
             this.props.setTargetOn(targetOn);
-            var molGroupList = JSON.parse(JSON.parse(myJson.scene)).molGroupList;
-            // this.props.setMolGroupList(molGroupList);
-            var mol_group_id = JSON.parse(JSON.parse(myJson.scene)).mol_group_id;
-            // this.props.setMolGroupOn(mol_group_id);
+            var molGroupList = json_of_view.molGroupList;
+            this.props.setMolGroupList(molGroupList);
+            var mol_group_id = json_of_view.mol_group_id;
+            this.props.setMolGroupOn(mol_group_id);
+            // TODO Rick - please set other elements of state with set$ITEM functions
+
+            // TODO Rick please write this function
+            this.props.setUuid("UNSET");
         }
     };
 
@@ -78,7 +83,8 @@ export class UpdateOrientation extends React.Component {
         }
         if (hasBeenRefreshed==true){
             // Post the data to the server as usual
-            var fullState = Object.assign(this.props.nglOrientations, {targetOn: this.props.target_on}, {molGroupList: this.props.mol_group_list}, {mol_group_id: this.props.mol_group_on})
+            // TODO Rick - please add different variables to this dictionary. Save as much of the state as you can please.
+            var fullState = Object.assign({},{apiReducers: this.props.apiReducers, apiReducers: this.props.apiReducers, selectionReducers: this.props.selectionReducers})
             const uuidv4 = require('uuid/v4');
             var TITLE = 'need to define title';
             var formattedState = {
@@ -112,11 +118,9 @@ export class UpdateOrientation extends React.Component {
 function mapStateToProps(state) {
   return {
       uuid: state.nglReducers.uuid,
-      nglOrientations: state.nglReducers.nglOrientations,
-      loadingState: state.nglReducers.loadingState,
-      target_on: state.apiReducers.target_on,
-      mol_group_on: state.apiReducers.mol_group_on,
-      mol_group_list: state.apiReducers.mol_group_list,
+      nglReducers: state.nglReducers,
+      apiReducers: state.apiReducers,
+      selectionReducers: state.selectionReducers
   }
 }
 const mapDispatchToProps = {
