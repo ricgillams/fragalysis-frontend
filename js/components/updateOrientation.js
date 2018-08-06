@@ -39,7 +39,7 @@ export class UpdateOrientation extends React.Component {
             // TODO Rick - please set other elements of state with set$ITEM functions
 
             // TODO Rick please write this function
-            this.props.setUuid("UNSET");
+            this.props.setUpdateState("SET");
         }
     };
 
@@ -67,7 +67,7 @@ export class UpdateOrientation extends React.Component {
 
     componentDidUpdate() {
         var hasBeenRefreshed = true
-        if(this.props.uuid!="UNSET"){
+        if(this.props.uuid!="UNSET" && this.props.updateState!="SET"){
             fetch("/api/viewscene/?uuid="+this.props.uuid)
                 .then(function(response) {
                     return response.json();
@@ -120,7 +120,8 @@ function mapStateToProps(state) {
       uuid: state.nglReducers.uuid,
       nglReducers: state.nglReducers,
       apiReducers: state.apiReducers,
-      selectionReducers: state.selectionReducers
+      selectionReducers: state.selectionReducers,
+      updateState: state.nglReducers.updateState,
   }
 }
 const mapDispatchToProps = {
@@ -131,6 +132,7 @@ const mapDispatchToProps = {
     setTargetOn: apiActions.setTargetOn,
     setMolGroupOn: apiActions.setMolGroupOn,
     setMolGroupList: apiActions.setMolGroupList,
-    setUuid:nglLoadActions.setUuid
+    setUuid:nglLoadActions.setUuid,
+    setUpdateState:nglLoadActions.setUpdateState,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
