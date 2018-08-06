@@ -39,7 +39,7 @@ export class UpdateOrientation extends React.Component {
             // TODO Rick - please set other elements of state with set$ITEM functions
 
             // TODO Rick please write this function
-            this.props.setUpdateState("UNSET");
+            // this.props.setUpdateState("UNSET");
         }
     };
 
