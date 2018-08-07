@@ -5,7 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import * as nglLoadActions from '../actions/nglLoadActions'
 import * as apiActions from '../actions/apiActions'
-import setFragmentDisplayList from '../actions/selectionActions'
+import * as selectionActions from '../actions/selectionActions'
 import { Button } from 'react-bootstrap'
 import {getStore, saveStore} from "../containers/globalStore";
 
