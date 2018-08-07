@@ -131,14 +131,17 @@ class MoleculeView extends GenericView {
         this.loadFromServer(this.props.width,this.props.height);
         var thisToggleOn = false;
         var complexOn = false;
-        for(var key in this.props.inViewList){
-            if(key.startsWith("MOLLOAD_") && parseInt(key.split("MOLLOAD_")[[1]], 10)==this.props.data.id){
-                this.setState(prevState => ({isToggleOn: true}));
-            }
-            if(key.startsWith("COMPLEXLOAD_") && parseInt(key.split("COMPLEXLOAD_")[[1]], 10)==this.props.data.id){
-                this.setState(prevState => ({complexOn: true}));
-            }
+        for (var key in this.props.fragmentDisplayList){
+            this.setState(prevState => ({isToggleOn: true}));
         }
+        // for(var key in this.props.objectsInView){
+        //     if(key.startsWith("MOLLOAD_") && parseInt(key.split("MOLLOAD_")[[1]], 10)==this.props.data.id){
+        //         this.setState(prevState => ({isToggleOn: true}));
+        //     }
+        //     if(key.startsWith("COMPLEXLOAD_") && parseInt(key.split("COMPLEXLOAD_")[[1]], 10)==this.props.data.id){
+        //         this.setState(prevState => ({complexOn: true}));
+        //     }
+        // }
     }
 
     render() {
@@ -224,9 +227,10 @@ function mapStateToProps(state) {
   return {
       currentList: state.apiReducers.possibleMols,
       to_query: state.selectionReducers.to_query,
-      inViewList:state.nglReducers.objectsInView,
+      objectsInView:state.nglReducers.objectsInView,
       vector_list: state.selectionReducers.vector_list,
       newListTwo: state.apiReducers.chosenMols,
+      fragmentDisplayList: state.selectionReducers.fragmentDisplayList,
   }
 }
 const mapDispatchToProps = {

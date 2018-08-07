@@ -42,14 +42,6 @@ export class UpdateOrientation extends React.Component {
             // var molGroupList = jsonOfView.apiReducers.mol_group_list;
             // this.props.setMolGroupList(molGroupList);
             // TODO Rick - please set other elements of state with set$ITEM functions
-            for(var key in jsonOfView.nglReducers.objectsInView){
-                if(key.startsWith("MOLLOAD_") && parseInt(key.split("MOLLOAD_")[[1]], 10)==this.props.data.id){
-                    this.setState(prevState => ({isToggleOn: true}));
-                }
-                if(key.startsWith("COMPLEXLOAD_") && parseInt(key.split("COMPLEXLOAD_")[[1]], 10)==this.props.data.id){
-                    this.setState(prevState => ({complexOn: true}));
-                }
-            }
         }
     };
 
@@ -114,6 +106,14 @@ export class UpdateOrientation extends React.Component {
                 alert("VIEW SAVED - send this link: " +
                     window.location.protocol + "//" + window.location.hostname + "/viewer/react/fragglebox/" + myJson.uuid.toString())
             });
+        }
+        for(var key in this.props.inViewList){
+            if(key.startsWith("MOLLOAD_") && parseInt(key.split("MOLLOAD_")[[1]], 10)==this.props.data.id){
+                this.setState(prevState => ({isToggleOn: true}));
+            }
+            if(key.startsWith("COMPLEXLOAD_") && parseInt(key.split("COMPLEXLOAD_")[[1]], 10)==this.props.data.id){
+                this.setState(prevState => ({complexOn: true}));
+            }
         }
     }
 
