@@ -132,6 +132,6 @@ const mapDispatchToProps = {
     setMolGroupList: apiActions.setMolGroupList,
     setUuid:nglLoadActions.setUuid,
     setUpdateState:nglLoadActions.setUpdateState,
-    setDisplayList:selectionActions.setDisplayList,
+    setFragmentDisplayList:selectionActions.setFragmentDisplayList,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
