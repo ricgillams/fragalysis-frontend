@@ -5,6 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import * as nglLoadActions from '../actions/nglLoadActions'
 import * as apiActions from '../actions/apiActions'
+import setFragmentDisplayList from '../actions/selectionActions'
 import { Button } from 'react-bootstrap'
 import {getStore, saveStore} from "../containers/globalStore";
 
@@ -23,7 +24,7 @@ export class UpdateOrientation extends React.Component {
             return;
         }
         var jsonOfView = JSON.parse(JSON.parse(JSON.parse(myJson.scene)).state);
-        var myOrientDict = JSON.parse(JSON.parse(JSON.parse(myJson.scene)).state).nglReducers.nglOrientations;
+        var myOrientDict = jsonOfView.nglReducers.nglOrientations;
         for(var div_id in myOrientDict){
             var orientation = myOrientDict[div_id]["orientation"];
             var components = myOrientDict[div_id]["components"];
@@ -37,6 +38,7 @@ export class UpdateOrientation extends React.Component {
             this.props.setMolGroupList(molGroupList);
             var molGroupOn = jsonOfView.apiReducers.mol_group_on;
             this.props.setMolGroupOn(molGroupOn);
+            this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
             // var molGroupList = jsonOfView.apiReducers.mol_group_list;
             // this.props.setMolGroupList(molGroupList);
             // TODO Rick - please set other elements of state with set$ITEM functions
@@ -130,5 +132,6 @@ const mapDispatchToProps = {
     setMolGroupList: apiActions.setMolGroupList,
     setUuid:nglLoadActions.setUuid,
     setUpdateState:nglLoadActions.setUpdateState,
+    setDisplayList:selectionActions.setDisplayList,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
