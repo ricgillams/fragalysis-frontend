@@ -42,7 +42,7 @@ export class UpdateOrientation extends React.Component {
             // var molGroupList = jsonOfView.apiReducers.mol_group_list;
             // this.props.setMolGroupList(molGroupList);
             // TODO Rick - please set other elements of state with set$ITEM functions
-            for(var key in json.objectsInView){
+            for(var key in jsonOfView.nglReducers.objectsInView){
                 if(key.startsWith("MOLLOAD_") && parseInt(key.split("MOLLOAD_")[[1]], 10)==this.props.data.id){
                     this.setState(prevState => ({isToggleOn: true}));
                 }
