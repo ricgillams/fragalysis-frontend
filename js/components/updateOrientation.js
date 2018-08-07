@@ -107,7 +107,7 @@ export class UpdateOrientation extends React.Component {
                     window.location.protocol + "//" + window.location.hostname + "/viewer/react/fragglebox/" + myJson.uuid.toString())
             });
         }
-        for(var key in this.props.inViewList){
+        for(var key in this.props.objectsInView){
             if(key.startsWith("MOLLOAD_") && parseInt(key.split("MOLLOAD_")[[1]], 10)==this.props.data.id){
                 this.setState(prevState => ({isToggleOn: true}));
             }
@@ -128,6 +128,7 @@ function mapStateToProps(state) {
   return {
       uuid: state.nglReducers.uuid,
       nglOrientations: state.nglReducers.nglOrientations,
+      objectsInView: state.nglReducers.objectsInView,
   }
 }
 const mapDispatchToProps = {
