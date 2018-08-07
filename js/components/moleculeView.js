@@ -104,7 +104,7 @@ class MoleculeView extends GenericView {
         // Get the data
         const data = this.props.data;
         var molId = {
-            "Id": data.id,
+            "id": data.id,
         }
         return molId;
     }
