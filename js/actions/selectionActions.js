@@ -2,7 +2,8 @@
  * Created by abradley on 15/03/2018.
  */
 
-import {SET_TO_BUY_LIST, APPEND_TO_BUY_LIST, REMOVE_FROM_TO_BUY_LIST, GET_FULL_GRAPH, GOT_FULL_GRAPH, SET_VECTOR_LIST, SELECT_VECTOR, SET_MOL} from './actonTypes'
+import {SET_TO_BUY_LIST, APPEND_TO_BUY_LIST, REMOVE_FROM_TO_BUY_LIST, GET_FULL_GRAPH, GOT_FULL_GRAPH, SET_VECTOR_LIST,
+    SELECT_VECTOR, SET_MOL, SET_FRAGMENT_DISPLAY_LIST, APPEND_FRAGMENT_DISPLAY_LIST, REMOVE_FROM_FRAGMENT_DISPLAY_LIST} from './actonTypes'
 
 export const setToBuyList = function (to_buy_list){
     console.log("ACTIONS: "+ to_buy_list)
@@ -68,5 +69,29 @@ export const selectVector = function (vector){
     return {
         type: SELECT_VECTOR,
         vector: vector
+    }
+}
+
+export const setFragmentDisplayList = function (fragmentDisplayList){
+    console.log("ACTIONS: "+ fragmentDisplayList)
+    return {
+        type: SET_FRAGMENT_DISPLAY_LIST,
+        fragmentDisplayList: fragmentDisplayList
+    }
+}
+
+export const appendFragmentDisplayList = function (item){
+    console.log("ACTIONS: "+ item)
+    return {
+        type: APPEND_FRAGMENT_DISPLAY_LIST,
+        item: item
+    }
+}
+
+export const removeFromFragmentDisplayList = function (item){
+    console.log("ACTIONS: "+ item)
+    return {
+        type: REMOVE_FROM_FRAGMENT_DISPLAY_LIST,
+        item: item
     }
 }

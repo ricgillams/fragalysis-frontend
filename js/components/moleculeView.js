@@ -163,9 +163,11 @@ class MoleculeView extends GenericView {
         this.setState(prevState => ({isToggleOn: !prevState.isToggleOn}))
         if(this.state.isToggleOn){
             this.props.deleteObject(Object.assign({display_div: "major_view"}, this.generateMolObject()))
+            this.props.removeFromFragmentDisplayList()
         }
         else{
             this.props.loadObject(Object.assign({display_div: "major_view"}, this.generateMolObject(this.colourToggle)))
+            this.props.appendFragmentDisplayList()
         }
     }
 
@@ -226,7 +228,9 @@ const mapDispatchToProps = {
     transferList: apiActions.transferList,
     deleteObject: nglLoadActions.deleteObject,
     removeFromToBuyList: selectionActions.removeFromToBuyList,
-    loadObject: nglLoadActions.loadObject
+    loadObject: nglLoadActions.loadObject,
+    appendFragmentDisplayList: selectionActions.appendFragmentDisplayList,
+    removeFromFragmentDisplayList: selectionActions.removeFromFragmentDisplayList,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoleculeView);
