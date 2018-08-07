@@ -100,6 +100,15 @@ class MoleculeView extends GenericView {
         return nglObject;
     }
 
+    generateMolId() {
+        // Get the data
+        const data = this.props.data;
+        var molId = {
+            "Id": data.id,
+        }
+        return molId;
+    }
+
     generateObject() {
         // Get the data
         const data = this.props.data;
@@ -163,11 +172,11 @@ class MoleculeView extends GenericView {
         this.setState(prevState => ({isToggleOn: !prevState.isToggleOn}))
         if(this.state.isToggleOn){
             this.props.deleteObject(Object.assign({display_div: "major_view"}, this.generateMolObject()))
-            this.props.removeFromFragmentDisplayList()
+            this.props.removeFromFragmentDisplayList(this.generateMolId)
         }
         else{
             this.props.loadObject(Object.assign({display_div: "major_view"}, this.generateMolObject(this.colourToggle)))
-            this.props.appendFragmentDisplayList()
+            this.props.appendFragmentDisplayList(this.generateMolId)
         }
     }
 
