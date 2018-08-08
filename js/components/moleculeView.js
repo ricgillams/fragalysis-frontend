@@ -101,10 +101,8 @@ class MoleculeView extends GenericView {
     }
 
     generateMolId() {
-        // Get the data
-        const data = this.props.data;
         var molId = {
-            "id": data.id,
+            "id": this.props.data.id,
         }
         return molId;
     }
@@ -137,11 +135,20 @@ class MoleculeView extends GenericView {
         this.setState(prevState => ({isToggleOn: isToggleOn}))
     }
 
-
+    checkInComplexList() {
+        var isComplexOn = false;
+        for (var item in this.props.complexList){
+            if (this.props.complexList[item].id==this.props.data.id){
+                isComplexOn=true;
+            }
+        }
+        this.setState(prevState => ({isComplexOn: isComplexOn}))
+    }
 
     componentDidMount() {
         this.loadFromServer(this.props.width,this.props.height);
         this.checkInList();
+        this.checkInComplexList();
     }
 
     render() {
@@ -187,9 +194,11 @@ class MoleculeView extends GenericView {
         this.setState(prevState => ({complexOn: !prevState.complexOn}))
         if(this.state.complexOn){
             this.props.deleteObject(Object.assign({display_div: "major_view"}, this.generateObject()))
+            this.props.removeFromComplexList(this.generateMolId())
         }
         else{
             this.props.loadObject(Object.assign({display_div: "major_view"}, this.generateObject()))
+            this.props.appendComplexList(this.generateMolId())
             if(this.state.isToggleOn==false){
                 this.handleClick()
             }
@@ -231,6 +240,7 @@ function mapStateToProps(state) {
       vector_list: state.selectionReducers.vector_list,
       newListTwo: state.apiReducers.chosenMols,
       fragmentDisplayList: state.selectionReducers.fragmentDisplayList,
+      complexList: state.selectionReducers.complexList,
   }
 }
 const mapDispatchToProps = {
@@ -244,6 +254,8 @@ const mapDispatchToProps = {
     loadObject: nglLoadActions.loadObject,
     appendFragmentDisplayList: selectionActions.appendFragmentDisplayList,
     removeFromFragmentDisplayList: selectionActions.removeFromFragmentDisplayList,
+    appendComplexList: selectionActions.appendComplexList,
+    removeFromComplexList: selectionActions.removeFromComplexList,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoleculeView);

@@ -3,7 +3,8 @@
  */
 
 import {SET_TO_BUY_LIST, APPEND_TO_BUY_LIST, REMOVE_FROM_TO_BUY_LIST, GET_FULL_GRAPH, GOT_FULL_GRAPH, SET_VECTOR_LIST,
-    SELECT_VECTOR, SET_MOL, SET_FRAGMENT_DISPLAY_LIST, APPEND_FRAGMENT_DISPLAY_LIST, REMOVE_FROM_FRAGMENT_DISPLAY_LIST} from './actonTypes'
+    SELECT_VECTOR, SET_MOL, SET_FRAGMENT_DISPLAY_LIST, APPEND_FRAGMENT_DISPLAY_LIST, REMOVE_FROM_FRAGMENT_DISPLAY_LIST,
+    SET_COMPLEX_LIST, APPEND_COMPLEX_LIST, REMOVE_FROM_COMPLEX_LIST} from './actonTypes'
 
 export const setToBuyList = function (to_buy_list){
     console.log("ACTIONS: "+ to_buy_list)
@@ -92,6 +93,30 @@ export const removeFromFragmentDisplayList = function (item){
     console.log("ACTIONS: "+ item)
     return {
         type: REMOVE_FROM_FRAGMENT_DISPLAY_LIST,
+        item: item
+    }
+}
+
+export const setComplexList = function (ComplexList){
+    console.log("ACTIONS: "+ ComplexList)
+    return {
+        type: SET_COMPLEX_LIST,
+        ComplexList: ComplexList
+    }
+}
+
+export const appendComplexList = function (item){
+    console.log("ACTIONS: "+ item)
+    return {
+        type: APPEND_COMPLEX_LIST,
+        item: item
+    }
+}
+
+export const removeFromComplexList = function (item){
+    console.log("ACTIONS: "+ item)
+    return {
+        type: REMOVE_FROM_COMPLEX_LIST,
         item: item
     }
 }

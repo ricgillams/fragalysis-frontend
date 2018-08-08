@@ -14,6 +14,7 @@ const INITIALSTATE = {
     querying: false,
     to_query: undefined,
     fragmentDisplayList: [],
+    complexList: [],
 }
 
 export default function selectionReducers(state = INITIALSTATE, action) {
@@ -134,6 +135,38 @@ export default function selectionReducers(state = INITIALSTATE, action) {
             fragmentDisplayList.splice(index, 1);
             return Object.assign({}, state, {
                 fragmentDisplayList: fragmentDisplayList
+            })
+
+        case actions.SET_COMPLEX_LIST:
+            return Object.assign({}, state, {
+                complexList: action.complexList,
+            });
+
+        case actions.APPEND_COMPLEX_LIST:
+            var complexList = state.complexList.slice();
+            var exists = false;
+            for (var item in complexList) {
+                if (complexList[item].id == action.item.id) {
+                    exists = true;
+                }
+            }
+            if (exists == false) {
+                complexList.push(action.item)
+            }
+            return Object.assign({}, state, {
+                complexList: complexList
+            })
+
+        case actions.REMOVE_FROM_COMPLEX_LIST:
+            var complexList = state.complexList
+            var index = -1;
+            for (var item in complexList) {
+                index = item
+                break;
+            }
+            complexList.splice(index, 1);
+            return Object.assign({}, state, {
+                complexList: complexList
             })
 
     // Cases like: @@redux/INIT
