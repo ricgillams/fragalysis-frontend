@@ -40,6 +40,7 @@ export class UpdateOrientation extends React.Component {
             var molGroupOn = jsonOfView.apiReducers.mol_group_on;
             this.props.setMolGroupOn(molGroupOn);
             this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
+            this.props.setComplexList(jsonOfView.selectionReducers.complexList);
             // var molGroupList = jsonOfView.apiReducers.mol_group_list;
             // this.props.setMolGroupList(molGroupList);
             // TODO Rick - please set other elements of state with set$ITEM functions
