@@ -24,7 +24,7 @@ export class UpdateOrientation extends React.Component {
             return;
         }
         var jsonOfView = JSON.parse(JSON.parse(JSON.parse(myJson.scene)).state);
-        saveStore(jsonOfView)
+        // saveStore(jsonOfView)
         var myOrientDict = jsonOfView.nglReducers.nglOrientations;
         for(var div_id in myOrientDict) {
             var orientation = myOrientDict[div_id]["orientation"];
