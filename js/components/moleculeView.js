@@ -142,7 +142,7 @@ class MoleculeView extends GenericView {
                 isComplexOn=true;
             }
         }
-        this.setState(prevState => ({isComplexOn: isComplexOn}))
+        this.setState(prevState => ({complexOn: complexOn}))
     }
 
     componentDidMount() {
