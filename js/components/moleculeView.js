@@ -136,10 +136,10 @@ class MoleculeView extends GenericView {
     }
 
     checkInComplexList() {
-        var isComplexOn = false;
+        var complexOn = false;
         for (var item in this.props.complexList){
             if (this.props.complexList[item].id==this.props.data.id){
-                isComplexOn=true;
+                complexOn=true;
             }
         }
         this.setState(prevState => ({complexOn: complexOn}))
