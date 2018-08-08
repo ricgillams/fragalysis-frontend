@@ -26,13 +26,14 @@ export class UpdateOrientation extends React.Component {
         var jsonOfView = JSON.parse(JSON.parse(JSON.parse(myJson.scene)).state);
         saveStore(jsonOfView)
         var myOrientDict = jsonOfView.nglReducers.nglOrientations;
-        for(var div_id in myOrientDict){
+        for(var div_id in myOrientDict) {
             var orientation = myOrientDict[div_id]["orientation"];
             var components = myOrientDict[div_id]["components"];
-            for (var component in components){
+            for (var component in components) {
                 this.props.loadObject(components[component]);
             }
             this.props.setNGLOrientation(div_id, orientation);
+        }
             var targetOn = jsonOfView.apiReducers.target_on;
             this.props.setTargetOn(targetOn);
             var molGroupList = jsonOfView.apiReducers.mol_group_list;
@@ -45,7 +46,6 @@ export class UpdateOrientation extends React.Component {
             // var molGroupList = jsonOfView.apiReducers.mol_group_list;
             // this.props.setMolGroupList(molGroupList);
             // TODO Rick - please set other elements of state with set$ITEM functions
-        }
     };
 
     handleRenderState(){
