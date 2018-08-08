@@ -41,6 +41,7 @@ export class UpdateOrientation extends React.Component {
             this.props.setMolGroupOn(molGroupOn);
             this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
             this.props.setComplexList(jsonOfView.selectionReducers.complexList);
+            this.props.setMol(jsonOfView.selectionReducers.to_query);
             // var molGroupList = jsonOfView.apiReducers.mol_group_list;
             // this.props.setMolGroupList(molGroupList);
             // TODO Rick - please set other elements of state with set$ITEM functions
@@ -145,5 +146,6 @@ const mapDispatchToProps = {
     setUpdateState: nglLoadActions.setUpdateState,
     setFragmentDisplayList: selectionActions.setFragmentDisplayList,
     setComplexList: selectionActions.setComplexList,
+    setMol: selectionActions.setMol,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
