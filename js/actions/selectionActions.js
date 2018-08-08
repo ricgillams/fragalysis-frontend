@@ -97,11 +97,11 @@ export const removeFromFragmentDisplayList = function (item){
     }
 }
 
-export const setComplexList = function (ComplexList){
-    console.log("ACTIONS: "+ ComplexList)
+export const setComplexList = function (complexList){
+    console.log("ACTIONS: "+ complexList)
     return {
         type: SET_COMPLEX_LIST,
-        ComplexList: ComplexList
+        complexList: complexList
     }
 }
 
