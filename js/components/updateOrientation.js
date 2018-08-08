@@ -41,7 +41,7 @@ export class UpdateOrientation extends React.Component {
             this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
             this.props.setComplexList(jsonOfView.selectionReducers.complexList);
             this.props.setMol(jsonOfView.selectionReducers.to_query);
-            this.props.setHotSpotList(jsonOfView.apiReducers.hotspot_list);
+            this.props.setHotspotList(jsonOfView.apiReducers.hotspot_list);
         };
 
     handleRenderState(){
