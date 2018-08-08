@@ -136,7 +136,7 @@ class MoleculeView extends GenericView {
                 fragmentList.push(this.props.fragmentDisplayList[key].id)
             }
         for (var key in this.props.fragmentDisplayList){
-            if (fragmentList.include(this.props.fragmentDisplayList[key].id)) {
+            if (fragmentList.includes(this.props.fragmentDisplayList[key].id)) {
                 this.setState(prevState => ({isToggleOn: true}));
             }
         }
