@@ -8,6 +8,7 @@ import * as apiActions from '../actions/apiActions'
 import * as selectionActions from '../actions/selectionActions'
 import { Button } from 'react-bootstrap'
 import {getStore, saveStore} from "../containers/globalStore";
+import apiReducers from "../reducers/apiReducers";
 
 
 export class UpdateOrientation extends React.Component {
@@ -24,29 +25,24 @@ export class UpdateOrientation extends React.Component {
             return;
         }
         var jsonOfView = JSON.parse(JSON.parse(JSON.parse(myJson.scene)).state);
-        // saveStore(jsonOfView)
-        var myOrientDict = jsonOfView.nglReducers.nglOrientations;
-        for(var div_id in myOrientDict) {
-            var orientation = myOrientDict[div_id]["orientation"];
-            var components = myOrientDict[div_id]["components"];
-            for (var component in components) {
-                this.props.loadObject(components[component]);
-            }
-            this.props.setNGLOrientation(div_id, orientation);
-        }
-            var targetOn = jsonOfView.apiReducers.target_on;
-            this.props.setTargetOn(targetOn);
-            var molGroupList = jsonOfView.apiReducers.mol_group_list;
-            this.props.setMolGroupList(molGroupList);
-            var molGroupOn = jsonOfView.apiReducers.mol_group_on;
-            this.props.setMolGroupOn(molGroupOn);
-            this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
-            this.props.setComplexList(jsonOfView.selectionReducers.complexList);
-            this.props.setMol(jsonOfView.selectionReducers.to_query);
-            // var molGroupList = jsonOfView.apiReducers.mol_group_list;
-            // this.props.setMolGroupList(molGroupList);
-            // TODO Rick - please set other elements of state with set$ITEM functions
-    };
+        saveStore(jsonOfView)
+        // var myOrientDict = jsonOfView.nglReducers.nglOrientations;
+        // for(var div_id in myOrientDict) {
+        //     var orientation = myOrientDict[div_id]["orientation"];
+        //     var components = myOrientDict[div_id]["components"];
+        //     for (var component in components) {
+        //         this.props.loadObject(components[component]);
+        //     }
+        //     this.props.setNGLOrientation(div_id, orientation);
+        // }
+        //     this.props.setTargetOn(jsonOfView.apiReducers.target_on);
+        //     this.props.setMolGroupList(jsonOfView.apiReducers.mol_group_list);
+        //     this.props.setMolGroupOn(jsonOfView.apiReducers.mol_group_on);
+        //     this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
+        //     this.props.setComplexList(jsonOfView.selectionReducers.complexList);
+        //     this.props.setMol(jsonOfView.selectionReducers.to_query);
+        //     this.props.setHotSpotList(jsonOfView.apiReducers.hotspot_list);
+        };
 
     handleRenderState(){
         var pk = document.getElementById("state_selector").value;
@@ -147,5 +143,6 @@ const mapDispatchToProps = {
     setFragmentDisplayList: selectionActions.setFragmentDisplayList,
     setComplexList: selectionActions.setComplexList,
     setMol: selectionActions.setMol,
+    setHotspotList: apiActions.setHotspotList,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
