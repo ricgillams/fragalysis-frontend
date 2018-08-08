@@ -127,19 +127,21 @@ class MoleculeView extends GenericView {
         this.props.setVectorList(objList)
     }
 
-    componentDidMount() {
-        this.loadFromServer(this.props.width,this.props.height);
-        var thisToggleOn = false;
-        var complexOn = false;
-
-        for(var key in this.props.objectsInView){
-            if(key.startsWith("MOLLOAD_") && parseInt(key.split("MOLLOAD_")[[1]], 10)==this.props.data.id){
-                this.setState(prevState => ({isToggleOn: true}));
-            }
-            if(key.startsWith("COMPLEXLOAD_") && parseInt(key.split("COMPLEXLOAD_")[[1]], 10)==this.props.data.id){
-                this.setState(prevState => ({complexOn: true}));
+    checkInList() {
+        var isToggleOn = false;
+        for(var item in this.props.fragmentDisplayList){
+            if( this.props.fragmentDisplayList[item].id==this.props.data.id){
+                isToggleOn=true
             }
         }
+        this.setState(prevState => ({isToggleOn: isToggleOn}))
+    }
+
+
+
+    componentDidMount() {
+        this.loadFromServer(this.props.width,this.props.height);
+        this.checkInList();
     }
 
     render() {
