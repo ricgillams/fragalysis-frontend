@@ -26,6 +26,13 @@ export class UpdateOrientation extends React.Component {
         }
         var jsonOfView = JSON.parse(JSON.parse(JSON.parse(myJson.scene)).state);
         // saveStore(jsonOfView)
+        this.props.setTargetOn(jsonOfView.apiReducers.target_on);
+        this.props.setMolGroupList(jsonOfView.apiReducers.mol_group_list);
+        this.props.setMolGroupOn(jsonOfView.apiReducers.mol_group_on);
+        this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
+        this.props.setComplexList(jsonOfView.selectionReducers.complexList);
+        this.props.setMol(jsonOfView.selectionReducers.to_query);
+        this.props.setHotspotList(jsonOfView.apiReducers.hotspot_list);
         var myOrientDict = jsonOfView.nglReducers.nglOrientations;
         for(var div_id in myOrientDict) {
             var orientation = myOrientDict[div_id]["orientation"];
@@ -35,13 +42,6 @@ export class UpdateOrientation extends React.Component {
             }
             this.props.setNGLOrientation(div_id, orientation);
         }
-        this.props.setTargetOn(jsonOfView.apiReducers.target_on);
-        this.props.setMolGroupList(jsonOfView.apiReducers.mol_group_list);
-        this.props.setMolGroupOn(jsonOfView.apiReducers.mol_group_on);
-        this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
-        this.props.setComplexList(jsonOfView.selectionReducers.complexList);
-        this.props.setMol(jsonOfView.selectionReducers.to_query);
-        this.props.setHotspotList(jsonOfView.apiReducers.hotspot_list);
     };
 
     handleRenderState(){
