@@ -35,14 +35,14 @@ export class UpdateOrientation extends React.Component {
             }
             this.props.setNGLOrientation(div_id, orientation);
         }
-            this.props.setTargetOn(jsonOfView.apiReducers.target_on);
-            this.props.setMolGroupList(jsonOfView.apiReducers.mol_group_list);
-            this.props.setMolGroupOn(jsonOfView.apiReducers.mol_group_on);
-            this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
-            this.props.setComplexList(jsonOfView.selectionReducers.complexList);
-            this.props.setMol(jsonOfView.selectionReducers.to_query);
-            this.props.setHotspotList(jsonOfView.apiReducers.hotspot_list);
-        };
+        this.props.setTargetOn(jsonOfView.apiReducers.target_on);
+        this.props.setMolGroupList(jsonOfView.apiReducers.mol_group_list);
+        this.props.setMolGroupOn(jsonOfView.apiReducers.mol_group_on);
+        this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
+        this.props.setComplexList(jsonOfView.selectionReducers.complexList);
+        this.props.setMol(jsonOfView.selectionReducers.to_query);
+        this.props.setHotspotList(jsonOfView.apiReducers.hotspot_list);
+    };
 
     handleRenderState(){
         var pk = document.getElementById("state_selector").value;
