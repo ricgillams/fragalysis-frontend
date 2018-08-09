@@ -47,7 +47,7 @@ export class UpdateOrientation extends React.Component {
             this.props.setNGLOrientation(div_id, orientation);
         }
         this.props.setAppOn(jsonOfView.apiReducers.app_on)
-        this.props.setStageColor(jsonOfView).nglReducers.stageColor;
+        this.props.setStageColor(jsonOfView.nglReducers.stageColor);
     };
 
     handleRenderState(){
