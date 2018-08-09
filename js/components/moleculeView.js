@@ -29,7 +29,7 @@ class MoleculeView extends GenericView {
         this.base_url = base_url;
         this.url = new URL(base_url + '/api/molimg/' + this.props.data.id + "/")
         this.key = "mol_image"
-        this.state.vectorOn = false
+        this.state.vectorOn = this.props.vectorOn
         this.state.complexOn = false
         this.colourToggle = this.getRandomColor();
     }
@@ -241,6 +241,7 @@ function mapStateToProps(state) {
       newListTwo: state.apiReducers.chosenMols,
       fragmentDisplayList: state.selectionReducers.fragmentDisplayList,
       complexList: state.selectionReducers.complexList,
+      vectorOn: state.selectionReducers.vectorOn,
   }
 }
 const mapDispatchToProps = {
