@@ -80,6 +80,11 @@ export default function selectionReducers(state = INITIALSTATE, action) {
                 to_query: action.mol
             });
 
+        case actions.SET_TO_SELECT:
+            return Object.assign({}, state, {
+                to_select: action.to_select
+            });
+
         case actions.GOT_FULL_GRAPH:
             var input_mol_dict = action.input_mol_dict;
             var new_dict = {}

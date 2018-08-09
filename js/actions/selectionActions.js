@@ -2,9 +2,10 @@
  * Created by abradley on 15/03/2018.
  */
 
-import {SET_TO_BUY_LIST, APPEND_TO_BUY_LIST, REMOVE_FROM_TO_BUY_LIST, GET_FULL_GRAPH, GOT_FULL_GRAPH, SET_VECTOR_LIST,
-    SELECT_VECTOR, SET_MOL, SET_FRAGMENT_DISPLAY_LIST, APPEND_FRAGMENT_DISPLAY_LIST, REMOVE_FROM_FRAGMENT_DISPLAY_LIST,
-    SET_COMPLEX_LIST, APPEND_COMPLEX_LIST, REMOVE_FROM_COMPLEX_LIST} from './actonTypes'
+import {SET_TO_BUY_LIST, APPEND_TO_BUY_LIST, REMOVE_FROM_TO_BUY_LIST, GET_FULL_GRAPH, GOT_FULL_GRAPH,
+    SET_VECTOR_LIST, SELECT_VECTOR, SET_TO_SELECT, SET_MOL, SET_FRAGMENT_DISPLAY_LIST,
+    APPEND_FRAGMENT_DISPLAY_LIST, REMOVE_FROM_FRAGMENT_DISPLAY_LIST, SET_COMPLEX_LIST, APPEND_COMPLEX_LIST,
+    REMOVE_FROM_COMPLEX_LIST} from './actonTypes'
 
 export const setToBuyList = function (to_buy_list){
     console.log("ACTIONS: "+ to_buy_list)
@@ -54,6 +55,14 @@ export const setMol = function(mol){
         mol: mol
     }
 
+}
+
+export const setToSelect = function(to_Select){
+    console.log("ACTIONS: "+ toSelect)
+    return {
+        type: SET_TO_SELECT,
+        to_Select: to_Select
+    }
 }
 
 export const setVectorList = function (vectList){
