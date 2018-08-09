@@ -155,6 +155,6 @@ const mapDispatchToProps = {
     setStageColor:nglLoadActions.setStageColor,
     setMoleculeList:apiActions.setMoleculeList,
     setVectorList:selectionActions.setVectorList,
-    setToSelec:selectionActions.setToSelect,
+    setToSelect:selectionActions.setToSelect,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
