@@ -58,7 +58,7 @@ export const setMol = function(mol){
 }
 
 export const setToSelect = function(to_Select){
-    console.log("ACTIONS: "+ toSelect)
+    console.log("ACTIONS: "+ to_Select)
     return {
         type: SET_TO_SELECT,
         to_Select: to_Select
