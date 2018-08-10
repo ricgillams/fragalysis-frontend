@@ -5,7 +5,7 @@
 import {SET_TO_BUY_LIST, APPEND_TO_BUY_LIST, REMOVE_FROM_TO_BUY_LIST, GET_FULL_GRAPH, GOT_FULL_GRAPH,
     SET_VECTOR_LIST, SELECT_VECTOR, SET_TO_SELECT, SET_MOL, SET_FRAGMENT_DISPLAY_LIST,
     APPEND_FRAGMENT_DISPLAY_LIST, REMOVE_FROM_FRAGMENT_DISPLAY_LIST, SET_COMPLEX_LIST, APPEND_COMPLEX_LIST,
-    REMOVE_FROM_COMPLEX_LIST} from './actonTypes'
+    REMOVE_FROM_COMPLEX_LIST, RELOAD_SELECTION_STATE} from './actonTypes'
 
 export const setToBuyList = function (to_buy_list){
     console.log("ACTIONS: "+ to_buy_list)
@@ -127,5 +127,17 @@ export const removeFromComplexList = function (item){
     return {
         type: REMOVE_FROM_COMPLEX_LIST,
         item: item
+    }
+}
+
+export const reloadselectionState = function (selectionReducers){
+    console.log("RELOAD STATE: " + selectionReducers)
+    return {
+        type: RELOAD_SELECTION_STATE,
+        fragmentDisplayList: selectionReducers.fragmentDisplayList,
+        complexList: selectionReducers.complexList,
+        to_query: selectionReducers.to_query,
+        vector_list: selectionReducers.vector_list,
+        to_select: selectionReducers.to_select
     }
 }

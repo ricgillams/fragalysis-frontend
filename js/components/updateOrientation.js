@@ -26,15 +26,16 @@ export class UpdateOrientation extends React.Component {
         }
         var jsonOfView = JSON.parse(JSON.parse(JSON.parse(myJson.scene)).state);
         // saveStore(jsonOfView)
+        this.props.reloadSelectionState(jsonOfView.selectionReducers);
         this.props.setTargetOn(jsonOfView.apiReducers.target_on);
         this.props.setMolGroupList(jsonOfView.apiReducers.mol_group_list);
         this.props.setMolGroupOn(jsonOfView.apiReducers.mol_group_on);
         this.props.setMoleculeList(jsonOfView.apiReducers.molecule_list);
-        this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
-        this.props.setComplexList(jsonOfView.selectionReducers.complexList);
-        this.props.setMol(jsonOfView.selectionReducers.to_query);
-        this.props.setVectorList(jsonOfView.selectionReducers.vector_list);
-        this.props.setToSelect(jsonOfView.selectionReducers.to_select)
+        // this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
+        // this.props.setComplexList(jsonOfView.selectionReducers.complexList);
+        // this.props.setMol(jsonOfView.selectionReducers.to_query);
+        // this.props.setVectorList(jsonOfView.selectionReducers.vector_list);
+        // this.props.setToSelect(jsonOfView.selectionReducers.to_select)
         this.props.setHotspotList(jsonOfView.apiReducers.hotspot_list);
         this.props.setHotspotOn(jsonOfView.apiReducers.hotspot_on);
         var myOrientDict = jsonOfView.nglReducers.nglOrientations;
@@ -137,6 +138,7 @@ function mapStateToProps(state) {
   }
 }
 const mapDispatchToProps = {
+    reloadSelectionState: selectionActions.reloadselectionState,
     loadObject: nglLoadActions.loadObject,
     setNGLOrientation: nglLoadActions.setNGLOrientation,
     setOrientation: nglLoadActions.setOrientation,
@@ -146,14 +148,14 @@ const mapDispatchToProps = {
     setMolGroupList: apiActions.setMolGroupList,
     setUuid: nglLoadActions.setUuid,
     setUpdateState: nglLoadActions.setUpdateState,
-    setFragmentDisplayList: selectionActions.setFragmentDisplayList,
-    setComplexList: selectionActions.setComplexList,
-    setMol: selectionActions.setMol,
     setHotspotList: apiActions.setHotspotList,
     setHotspotOn: apiActions.setHotspotOn,
     setAppOn: apiActions.setAppOn,
     setStageColor:nglLoadActions.setStageColor,
     setMoleculeList:apiActions.setMoleculeList,
+    setMol: selectionActions.setMol,
+    setFragmentDisplayList: selectionActions.setFragmentDisplayList,
+    setComplexList: selectionActions.setComplexList,
     setVectorList:selectionActions.setVectorList,
     setToSelect:selectionActions.setToSelect,
 }

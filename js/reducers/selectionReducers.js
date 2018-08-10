@@ -174,6 +174,15 @@ export default function selectionReducers(state = INITIALSTATE, action) {
                 complexList: complexList
             })
 
+        case actions.RELOAD_SELECTION_STATE:
+            return Object.assign({}, state, {
+                fragmentDisplayList: action.fragmentDisplayList,
+                complexList: action.complexList,
+                to_query: action.to_query,
+                vector_list: action.vector_list,
+                to_select: action.to_select
+            });
+
     // Cases like: @@redux/INIT
             default:
                 return state;
