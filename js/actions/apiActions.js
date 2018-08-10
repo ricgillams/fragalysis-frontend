@@ -186,13 +186,13 @@ export const reloadApiState = function (apiReducers) {
     return {
         type: RELOAD_API_STATE,
         target_on_name: apiReducers.target_on_name,
-        target_on: apiReducers.action.target_on,
-        molecule_list: apiReducers.action.molecule_list,
-        mol_group_list: apiReducers.action.mol_group_list,
-        mol_group_on: apiReducers.action.mol_group_on,
-        hotspot_list: apiReducers.action.hotspot_list,
-        hotspot_on: apiReducers.action.hotspot_on,
-        app_on: apiReducers.action.app_on
+        target_on: apiReducers.target_on,
+        molecule_list: apiReducers.molecule_list,
+        mol_group_list: apiReducers.mol_group_list,
+        mol_group_on: apiReducers.mol_group_on,
+        hotspot_list: apiReducers.hotspot_list,
+        hotspot_on: apiReducers.hotspot_on,
+        app_on: apiReducers.app_on
     }
 }
 

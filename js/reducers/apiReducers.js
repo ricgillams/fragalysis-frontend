@@ -154,14 +154,8 @@ export default function apiReducers(state = INITIALSTATE, action) {
             });
 
         case actions.RELOAD_API_STATE:
-            var target_on_name = undefined;
-            for(var ind in state.target_id_list){
-                if(state.target_id_list[ind].id==action.target_on){
-                    target_on_name = state.target_id_list[ind].title;
-                }
-            }
             return Object.assign({}, state, {
-                target_on_name: target_on_name,
+                target_on_name: action.target_on_name,
                 target_on: action.target_on,
                 molecule_list: action.molecule_list,
                 mol_group_list: action.mol_group_list,
