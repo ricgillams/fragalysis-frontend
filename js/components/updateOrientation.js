@@ -27,17 +27,15 @@ export class UpdateOrientation extends React.Component {
         var jsonOfView = JSON.parse(JSON.parse(JSON.parse(myJson.scene)).state);
         // saveStore(jsonOfView)
         this.props.reloadSelectionState(jsonOfView.selectionReducers);
-        this.props.setTargetOn(jsonOfView.apiReducers.target_on);
-        this.props.setMolGroupList(jsonOfView.apiReducers.mol_group_list);
-        this.props.setMolGroupOn(jsonOfView.apiReducers.mol_group_on);
-        this.props.setMoleculeList(jsonOfView.apiReducers.molecule_list);
-        // this.props.setFragmentDisplayList(jsonOfView.selectionReducers.fragmentDisplayList);
-        // this.props.setComplexList(jsonOfView.selectionReducers.complexList);
-        // this.props.setMol(jsonOfView.selectionReducers.to_query);
-        // this.props.setVectorList(jsonOfView.selectionReducers.vector_list);
-        // this.props.setToSelect(jsonOfView.selectionReducers.to_select)
-        this.props.setHotspotList(jsonOfView.apiReducers.hotspot_list);
-        this.props.setHotspotOn(jsonOfView.apiReducers.hotspot_on);
+        this.props.reloadApiState(jsonOfView.apiReducers);
+        // this.props.setTargetOn(jsonOfView.apiReducers.target_on);
+        // this.props.setMolGroupList(jsonOfView.apiReducers.mol_group_list);
+        // this.props.setMolGroupOn(jsonOfView.apiReducers.mol_group_on);
+        // this.props.setMoleculeList(jsonOfView.apiReducers.molecule_list);
+        // this.props.setAppOn(jsonOfView.apiReducers.app_on);
+        // this.props.setHotspotList(jsonOfView.apiReducers.hotspot_list);
+        // this.props.setHotspotOn(jsonOfView.apiReducers.hotspot_on);
+        this.props.setStageColor(jsonOfView.nglReducers.stageColor);
         var myOrientDict = jsonOfView.nglReducers.nglOrientations;
         for(var div_id in myOrientDict) {
             var orientation = myOrientDict[div_id]["orientation"];
@@ -47,8 +45,6 @@ export class UpdateOrientation extends React.Component {
             }
             this.props.setNGLOrientation(div_id, orientation);
         }
-        this.props.setAppOn(jsonOfView.apiReducers.app_on)
-        this.props.setStageColor(jsonOfView.nglReducers.stageColor);
     };
 
     handleRenderState(){
@@ -139,24 +135,14 @@ function mapStateToProps(state) {
 }
 const mapDispatchToProps = {
     reloadSelectionState: selectionActions.reloadselectionState,
+    reloadApiState: apiActions.reloadApiState,
     loadObject: nglLoadActions.loadObject,
     setNGLOrientation: nglLoadActions.setNGLOrientation,
     setOrientation: nglLoadActions.setOrientation,
     setLoadingState: nglLoadActions.setLoadingState,
-    setTargetOn: apiActions.setTargetOn,
-    setMolGroupOn: apiActions.setMolGroupOn,
-    setMolGroupList: apiActions.setMolGroupList,
     setUuid: nglLoadActions.setUuid,
     setUpdateState: nglLoadActions.setUpdateState,
-    setHotspotList: apiActions.setHotspotList,
-    setHotspotOn: apiActions.setHotspotOn,
-    setAppOn: apiActions.setAppOn,
     setStageColor:nglLoadActions.setStageColor,
-    setMoleculeList:apiActions.setMoleculeList,
-    setMol: selectionActions.setMol,
-    setFragmentDisplayList: selectionActions.setFragmentDisplayList,
-    setComplexList: selectionActions.setComplexList,
-    setVectorList:selectionActions.setVectorList,
-    setToSelect:selectionActions.setToSelect,
+
 }
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
