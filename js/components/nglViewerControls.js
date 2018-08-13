@@ -5,7 +5,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as nglLoadActions from '../actions/nglLoadActions';
-import SaveCheckpointButton from '../saveCheckpointButton';
+import SaveCheckpointButton from './saveCheckpointButton';
 import { Button } from 'react-bootstrap';
 
 class NglViewerControls extends React.Component {
