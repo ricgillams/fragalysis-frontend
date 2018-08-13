@@ -138,6 +138,7 @@ export const reloadselectionState = function (selectionReducers){
         complexList: selectionReducers.complexList,
         to_query: selectionReducers.to_query,
         vector_list: selectionReducers.vector_list,
-        to_select: selectionReducers.to_select
+        to_select: selectionReducers.to_select,
+        vector: vector
     }
 }
