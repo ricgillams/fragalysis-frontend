@@ -82,9 +82,12 @@ export class ReloadSavedState extends React.Component {
     }
 
     render() {
-        <div>
-            <img src={ require('../img/Fragglebox_logo_v0.2.png')} />
-        </div>
+        return(
+            <div>
+                <img src={ require('../img/Fragglebox_logo_v0.2.png')} />
+
+            </div>
+        )
     }
 }
 
