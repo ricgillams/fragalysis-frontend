@@ -84,7 +84,7 @@ export class ReloadSavedState extends React.Component {
     render() {
         return(
             <div>
-                <Image src={'../img/Fragglebox_logo_v0.2.png'} responsive rounded />
+                <Image src={ require('../img/Fragglebox_logo_v0.2.png') } responsive rounded />
             </div>
         )
     }
