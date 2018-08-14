@@ -1,7 +1,7 @@
 /**
  * Created by ricgillams in 25/06/2018.
  */
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Row, Col, Grid, Well, Image } from 'react-bootstrap';
 import MolGroupList from '../components/molGroupList';
@@ -20,7 +20,7 @@ import { withRouter } from 'react-router-dom'
 import {ReloadSavedState} from "../components/reloadSavedState";
 
 
-class Fragglebox extends Component {
+class Fragglebox extends React.Component {
 
     constructor(props) {
         super(props)
@@ -34,7 +34,7 @@ class Fragglebox extends Component {
     //         .then(json => this.props.setTargetOn(json["results"][0].id));
     // }
 
-    componentDidUpdate(){
+    componentWillMount(){
         var uuid = this.props.match.params.uuid;
         this.props.setUuid(uuid);
     }
