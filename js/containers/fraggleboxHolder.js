@@ -53,7 +53,7 @@ class Fragglebox extends React.Component {
                 </Col>
                 <Col xs={5} md={5} >
                     <NGLView div_id="major_view" height="600px"/>
-                    <NglViewerControls />
+                    {/*<NglViewerControls />*/}
                 </Col>
                 <Col xs={4} md={4}>
                     <SummaryView />
