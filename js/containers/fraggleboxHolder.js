@@ -17,6 +17,7 @@ import HotspotList from '../components/hotspotList'
 import * as apiActions from '../actions/apiActions';
 import fetch from 'cross-fetch';
 import { withRouter } from 'react-router-dom'
+import {ReloadSavedState} from "../components/reloadSavedState";
 
 
 class Fragglebox extends Component {
@@ -58,6 +59,7 @@ class Fragglebox extends Component {
                     <SummaryView />
                     <HotspotList />
                 </Col>
+                <ReloadSavedState/>
                 <ModalLoadingScreen/>
           </Row>
         )
