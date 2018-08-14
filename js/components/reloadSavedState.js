@@ -69,7 +69,7 @@ export class ReloadSavedState extends React.Component {
                     return response.json();
                 })
                 .then(json => this.handleJson(json.results[0]))
-                .then(this.props.setUuid("UNSET"));
+                // .then(this.props.setUuid("UNSET"));
         }
         for(var key in this.props.objectsInView){
             if(key.startsWith("MOLLOAD_") && parseInt(key.split("MOLLOAD_")[[1]], 10)==this.props.data.id){
