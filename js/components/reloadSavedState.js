@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import * as nglLoadActions from '../actions/nglLoadActions'
 import * as apiActions from '../actions/apiActions'
 import * as selectionActions from '../actions/selectionActions'
-import { Button } from 'react-bootstrap'
+import { Button, Image } from 'react-bootstrap'
 import {getStore, saveStore} from "../containers/globalStore";
 import apiReducers from "../reducers/apiReducers";
 
@@ -84,8 +84,7 @@ export class ReloadSavedState extends React.Component {
     render() {
         return(
             <div>
-                <img src={ require('../img/Fragglebox_logo_v0.2.png')} />
-
+                <Image src={'../img/Fragglebox_logo_v0.2.png'} responsive rounded />
             </div>
         )
     }
