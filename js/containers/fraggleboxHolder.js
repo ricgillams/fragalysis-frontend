@@ -19,11 +19,10 @@ import fetch from 'cross-fetch';
 import { withRouter } from 'react-router-dom'
 
 
-class FraggleBox extends Component {
+class Fragglebox extends Component {
 
     constructor(props) {
         super(props)
-        // this.updateTarget = this.updateTarget.bind(this);
     }
     // updateTarget(){
     //     var target = this.props.match.params.target;
@@ -37,8 +36,6 @@ class FraggleBox extends Component {
     componentDidMount(){
         var uuid = this.props.match.params.uuid;
         this.props.setUuid(uuid);
-        // this.props.setStageColor
-        // this.updateTarget();
     }
 
     render() {
@@ -78,4 +75,4 @@ const mapDispatchToProps = {
 }
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FraggleBox))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Fragglebox))

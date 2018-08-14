@@ -63,7 +63,15 @@ export class ReloadSavedState extends React.Component {
     }
 
     componentDidUpdate() {
-        for(var key in this.props.inViewList){
+        if (this.props.uuid != "UNSET") {
+            fetch("/api/viewscene/?uuid=" + this.props.uuid)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(json => this.handleJson(json.results[0]))
+                .then(this.setUuid("UNSET"));
+        }
+        for(var key in this.props.objectsInView){
             if(key.startsWith("MOLLOAD_") && parseInt(key.split("MOLLOAD_")[[1]], 10)==this.props.data.id){
                 this.setState(prevState => ({isToggleOn: true}));
             }

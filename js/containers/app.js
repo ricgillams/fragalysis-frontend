@@ -6,7 +6,7 @@ import {MyMenu} from '../components/menuView'
 import LoadingBar from 'react-redux-loading-bar'
 import Tindspect from './tindspectHolder'
 import Preview from './previewHolder'
-import FraggleBox from './fraggleBoxHolder';
+import Fragglebox from './fraggleboxHolder';
 import Landing from './landingHolder';
 import { Route, Switch} from 'react-router-dom'
 
@@ -21,7 +21,7 @@ const routes = (
                       <Route exact path="/viewer/react/preview" component={Preview} />
                       <Route exact path="/viewer/react/preview/target/:target" component={Preview} />
                       <Route exact path="/viewer/react/tindspect" component={Tindspect} />
-                      <Route path="/viewer/react/fragglebox/:uuid" component={FraggleBox} />
+                      <Route path="/viewer/react/fragglebox/:uuid" component={Fragglebox} />
                   </Switch>
           </Grid>
       </div>

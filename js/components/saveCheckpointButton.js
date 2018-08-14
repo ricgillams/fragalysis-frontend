@@ -24,12 +24,6 @@ export class SaveCheckpointButton extends React.Component {
 
     componentDidUpdate() {
         var hasBeenRefreshed = true
-        if (this.props.uuid != "UNSET") {
-            fetch("/api/viewscene/?uuid=" + this.props.uuid)
-                .then(function (response) {
-                    return response.json();
-                }).then(json => this.handleJson(json.results[0]))
-        }
         for (var key in this.props.nglOrientations) {
             if (this.props.nglOrientations[key] == "REFRESH") {
                 hasBeenRefreshed = false;
