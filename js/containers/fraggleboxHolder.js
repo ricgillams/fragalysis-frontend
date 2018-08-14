@@ -34,7 +34,7 @@ class Fragglebox extends Component {
     //         .then(json => this.props.setTargetOn(json["results"][0].id));
     // }
 
-    componentDidMount(){
+    componentDidUpdate(){
         var uuid = this.props.match.params.uuid;
         this.props.setUuid(uuid);
     }

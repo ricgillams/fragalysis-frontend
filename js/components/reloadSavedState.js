@@ -17,7 +17,7 @@ export class ReloadSavedState extends React.Component {
         this.postToServer = this.postToServer.bind(this);
         this.handleRenderState = this.handleRenderState.bind(this);
         this.handleJson = this.handleJson.bind(this);
-        this.handleRenderOrientation = this.handleRenderOrientation.bind(this);
+        // this.handleRenderOrientation = this.handleRenderOrientation.bind(this);
     }
     
     handleJson(myJson){
@@ -47,14 +47,14 @@ export class ReloadSavedState extends React.Component {
             return response.json();
         }).then(json => this.handleJson(json))
     }
-
-    handleRenderOrientation(){
-        var pk = document.getElementById("state_selector").value;
-        fetch("/api/viewscene/"+pk)
-        .then(function(response) {
-            return response.json();
-        }).then(json => this.handleJson(json))
-    }
+    //
+    // handleRenderOrientation(){
+    //     var pk = document.getElementById("state_selector").value;
+    //     fetch("/api/viewscene/"+pk)
+    //     .then(function(response) {
+    //         return response.json();
+    //     }).then(json => this.handleJson(json))
+    // }
 
     postToServer() {
         for(var key in this.props.nglOrientations){
