@@ -62,10 +62,10 @@ export class ReloadSavedState extends React.Component {
         }
     }
 
-    componentWillMount() {
-        var uuidToSet = this.props.uuid;
-        this.props.setUuid(uuidToSet);
-    }
+    // componentWillMount() {
+    //     var uuidToSet = this.props.uuid;
+    //     this.props.setUuid(uuidToSet);
+    // }
 
     componentDidMount() {
         if (this.props.uuid != "UNSET") {
