@@ -68,7 +68,7 @@ export class ReloadSavedState extends React.Component {
     // }
 
     componentDidMount() {
-        if (this.props.uuid != "UNSET") {
+        if (this.props.uuid != "UNSET" && this.props.uuid !== undefined) {
             fetch("/api/viewscene/?uuid=" + this.props.uuid)
                 .then(function (response) {
                     return response.json();
