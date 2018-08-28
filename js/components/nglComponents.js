@@ -268,7 +268,6 @@ export class NGLView extends React.Component {
         });
     }
 
-
     showCylinder(stage, input_dict, object_name) {
         var colour = input_dict.colour==undefined ? [1,0,0] : input_dict.colour;
         var radius = input_dict.radius==undefined ? 0.4 : input_dict.radius;
@@ -277,7 +276,6 @@ export class NGLView extends React.Component {
             console.log("START OR END UNDEFINED FOR CYLINDER" + input_dict.toString())
             return;
         }
-
         var shape = new Shape( object_name );
         shape.addCylinder(input_dict.start,input_dict.end, colour, radius);
         var shapeComp = stage.addComponentFromObject(shape);
