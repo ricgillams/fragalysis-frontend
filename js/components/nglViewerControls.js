@@ -29,8 +29,8 @@ class NglViewerControls extends React.Component {
             this.props.setNglProtStyle('licorice')
         } else if (this.props.nglProtStyle === 'licorice') {
             this.props.setNglProtStyle('hyperball')
-        } else if (this.props.nglProtStyle === "hyperball") {
-            this.props.setNglProtStyle("ball+stick")
+        } else if (this.props.nglProtStyle === 'hyperball') {
+            this.props.setNglProtStyle('ball+stick')
         }
     }
 

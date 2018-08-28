@@ -193,6 +193,7 @@ export class NGLView extends React.Component {
             var colour = ol[5];
             // Set the object name
             var comp = stage.addComponentFromObject(cs)
+            // var nglProtStyle = this.props.nglProtStyle
             comp.addRepresentation('cartoon')
             comp.addRepresentation("contact", {
                 masterModelIndex: 0,
@@ -298,9 +299,9 @@ export class NGLView extends React.Component {
     }
 
     showProtein(stage, input_dict, object_name) {
-        var nglProtStyle = this.props.nglProtStyle;
+        // var nglProtStyle = this.props.nglProtStyle
         stage.loadFile(input_dict.prot_url, {name: object_name, ext: "pdb"}).then(function (comp) {
-            comp.addRepresentation(nglProtStyle, {});
+            comp.addRepresentation('hyperball', {});
             comp.autoView();
         });
     }
