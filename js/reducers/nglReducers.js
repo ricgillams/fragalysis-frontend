@@ -18,7 +18,7 @@ const INITIALSTATE = {
     orientationToSet: {},
     loadingState: true,
     stageColor: 'black',
-    nglProtStyle: 'hyperball'
+    nglProtStyle: 'cartoon'
 }
 
 export default function nglReducers(state = INITIALSTATE, action) {
