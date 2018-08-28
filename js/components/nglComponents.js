@@ -300,7 +300,7 @@ export class NGLView extends React.Component {
 
     showProtein(stage, input_dict, object_name) {
         stage.loadFile(input_dict.prot_url, {name: object_name, ext: "pdb"}).then(function (comp) {
-            comp.addRepresentation('cartoon', {});
+            comp.addRepresentation(input_dict.nglProtStyle, {});
             comp.autoView();
         });
     }
@@ -511,7 +511,6 @@ function mapStateToProps(state) {
       objectsPicked: state.nglReducers.present.objectsPicked,
       loadingState: state.nglReducers.present.loadingState,
       stageColor: state.nglReducers.present.stageColor,
-      nglProtStyle: state.nglReducers.present.nglProtStyle
   }
 }
 const mapDispatchToProps = {
