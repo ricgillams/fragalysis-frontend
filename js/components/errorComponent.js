@@ -3,7 +3,7 @@
  */
 import * as Sentry from '@sentry/browser';
 import React from "react";
-
+import {Button} from "react-bootstrap";
 
 export class ErrorView extends React.Component {
 
@@ -26,7 +26,8 @@ export class ErrorView extends React.Component {
         if (this.state.error) {
             //render fallback UI
             return (
-              <a onClick={() => Sentry.showReportDialog()}>Report feedback</a>
+              {/*<a onClick={() => Sentry.showReportDialog()}>Report feedback</a>*/}
+              <Button bsSize="sm" bsStyle="success" onClick={Sentry.showReportDialog}>Report feedback</Button>
             );
         } else {
             return null;
