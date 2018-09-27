@@ -84,7 +84,6 @@ class Header extends React.Component {
         <Nav pullRight>
             <NavItem>
                 <UpdateOrientation />
-                <ErrorView/>
             </NavItem>
         </Nav>
         <TargetList key="TARGLIST" render={false}/>

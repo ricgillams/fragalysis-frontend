@@ -26,10 +26,12 @@ export class ErrorView extends React.Component {
         if (this.state.error) {
             //render fallback UI
             return (
-              <a onClick={() => Sentry.showReportDialog()}>Report feedback</a>
+              <a onClick={() => Sentry.showReportDialog()}>Report error feedback</a>
             );
         } else {
-            return <Button bsSize="sm" bsStyle="success" onClick={Sentry.showReportDialog}>Report feedback</Button>;
+            return (
+                <a onClick={() => Sentry.showReportDialog()}>Report feedback</a>
+            );
         }
     }
 }
