@@ -4,13 +4,12 @@
 
 import SVGInline from "react-svg-inline";
 import React from "react";
-import {ListGroup, Pager, ProgressBar, Well} from "react-bootstrap";
+import {ListGroup, Pager, Well} from "react-bootstrap";
 import fetch from "cross-fetch";
 import * as listTypes from "./listTypes";
 export function FillMe(props) {
     return <h1>FILL ME UP PLEASE</h1>;
 }
-
 
 // Generic Classes
 export class GenericList extends React.Component {
@@ -25,7 +24,6 @@ export class GenericList extends React.Component {
         this.beforePush  = this.beforePush.bind(this)
         this.afterPush = this.afterPush.bind(this)
   }
-
 
     beforePush() {
 
