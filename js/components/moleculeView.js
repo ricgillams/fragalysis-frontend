@@ -241,6 +241,7 @@ class MoleculeView extends GenericView {
             this.props.vector_list.forEach(item => this.props.deleteObject(Object.assign({display_div: "major_view"}, item)));
             this.props.setMol("");
             this.props.removeFromVectorOnList(this.generateMolId())
+            this.props.deselectVector()
         }
         else {
             this.props.vector_list.forEach(item => this.props.deleteObject(Object.assign({display_div: "major_view"}, item)));
@@ -285,6 +286,7 @@ const mapDispatchToProps = {
     removeFromVectorOnList: selectionActions.removeFromVectorOnList,
     appendFragmentDisplayList: selectionActions.appendFragmentDisplayList,
     removeFromFragmentDisplayList: selectionActions.removeFromFragmentDisplayList,
+    deselectVector: selectionActions.deselectVector,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoleculeView);

@@ -9,7 +9,8 @@ import {
     GET_FULL_GRAPH,
     GOT_FULL_GRAPH,
     SET_VECTOR_LIST,
-    SELECT_VECTOR,
+    SELECT_VECTOR
+    DESELECT_VECTOR,
     SET_MOL,
     SET_FRAGMENT_DISPLAY_LIST,
     APPEND_FRAGMENT_DISPLAY_LIST,
@@ -87,6 +88,13 @@ export const selectVector = function (vector){
     return {
         type: SELECT_VECTOR,
         vector: vector
+    }
+}
+
+export const deselectVector = function (){
+    console.log("ACTIONS: DESELECT VECTOR")
+    return {
+        type: DESELECT_VECTOR
     }
 }
 
