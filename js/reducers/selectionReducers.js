@@ -127,7 +127,13 @@ export default function selectionReducers(state = INITIALSTATE, action) {
         case actions.DESELECT_VECTOR:
             return  Object.assign({}, state, {
                 this_vector_list: {},
-                currentVector: undefined
+                currentVector: undefined,
+                to_query: undefined,
+                to_query_pk: undefined,
+                to_query_prot: undefined,
+                to_query_sdf: undefined,
+                to_select: {},
+                vector_list: {}
             });
 
         case actions.SET_FRAGMENT_DISPLAY_LIST:
