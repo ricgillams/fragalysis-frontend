@@ -21,7 +21,8 @@ class Switches extends Component {
                 <Route exact path="/viewer/react/preview" component={Preview}/>
                 <Route exact path="/viewer/react/preview/target/:target" component={Preview}/>
                 <Route exact path="/viewer/react/tindspect" component={Tindspect}/>
-                <Route path="/viewer/react/fragglebox/:uuid" component={FraggleBox}/>
+                <Route exact path="/viewer/react/fragglebox/:uuid" component={FraggleBox}/>
+                <Route exact path="/viewer/react/fragglebox/session/:sessionUuid" component={FraggleBox}/>
             </Switch>
         </div>
     }

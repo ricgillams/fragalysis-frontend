@@ -8,7 +8,7 @@ import {connect} from "react-redux";
 import * as nglObjectTypes from "../components/nglObjectTypes";
 import {withRouter} from "react-router-dom";
 import TargetList from "./targetList";
-import UpdateOrientation from "./updateOrientation";
+import SessionManagement from "./sessionManagement";
 import ErrorReport from "./errorReport"
 
 class Header extends React.Component {
@@ -84,7 +84,7 @@ class Header extends React.Component {
         <Nav pullRight>
             <NavItem>
                 <ErrorReport />
-                <UpdateOrientation />
+                <SessionManagement />
             </NavItem>
         </Nav>
         <TargetList key="TARGLIST" render={false}/>

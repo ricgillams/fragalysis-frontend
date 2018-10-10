@@ -11,6 +11,7 @@ import { css } from 'react-emotion';
 import { RingLoader } from 'react-spinners';
 import {getStore} from "../containers/globalStore";
 import * as selectionActions from "../actions/selectionActions";
+import {withRouter} from "react-router-dom";
 
 const override = css`
     display: block;
@@ -18,7 +19,7 @@ const override = css`
     border-color: red;
 `;
 
-export class UpdateOrientation extends React.Component {
+export class SessionManagement extends React.Component {
     constructor(props) {
         super(props);
         this.updateFraggleBox = this.updateFraggleBox.bind(this);
@@ -26,6 +27,8 @@ export class UpdateOrientation extends React.Component {
         this.postToServer = this.postToServer.bind(this);
         this.handleJson = this.handleJson.bind(this);
         this.getCookie = this.getCookie.bind(this);
+        this.newSession = this.newSession.bind(this);
+        this.saveSession = this.saveSession.bind(this);
     }
 
     updateFraggleBox(myJson){
@@ -34,6 +37,12 @@ export class UpdateOrientation extends React.Component {
 
     deployErrorModal(error) {
         this.props.setErrorMessage(error);
+    }
+
+    newSession(){
+    }
+
+    saveSession(uuid){
     }
 
     postToServer() {
@@ -100,10 +109,12 @@ export class UpdateOrientation extends React.Component {
             const csrfToken = this.getCookie("csrftoken");
             var fullState = {"state": store};
             const uuidv4 = require('uuid/v4');
-            var TITLE = 'need to define title';
+            var title = 'need to define title';
+            var username = DJANGO_CONTEXT["username"];
             var formattedState = {
                 uuid: uuidv4(),
-                title: TITLE,
+                title: title,
+                sessionAuthor: username,
                 scene: JSON.stringify(JSON.stringify(fullState))
             };
             fetch("/api/viewscene/", {
@@ -128,7 +139,9 @@ export class UpdateOrientation extends React.Component {
         if (this.props.savingState == true) {
             return <RingLoader className={override} sizeUnit={"px"} size={30} color={'#7B36D7'} loading={this.props.savingState}/>
         } else {
-            return <Button bsSize="sm" bsStyle="success" onClick={this.postToServer}>Save Page</Button>
+            return <Button bsSize="sm" bsStyle="success" onClick={this.postToServer}>Share current state</Button>
+            return <Button bsSize="sm" bsStyle="success" onClick={this.postToServer}>Save session</Button>
+            return <Button bsSize="sm" bsStyle="success" onClick={this.postToServer}>Start new session</Button>
         }
     }
 }
@@ -153,4 +166,4 @@ const mapDispatchToProps = {
     setStageColor: nglLoadActions.setStageColor,
     setCompoundClasses: selectionActions.setCompoundClasses,
 }
-export default connect(mapStateToProps, mapDispatchToProps)(UpdateOrientation);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionManagement));
