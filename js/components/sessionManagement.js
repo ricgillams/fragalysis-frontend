@@ -140,9 +140,11 @@ export class SessionManagement extends React.Component {
             return <RingLoader className={override} sizeUnit={"px"} size={30} color={'#7B36D7'} loading={this.props.savingState}/>
         } else {
             return (
-                <Button bsSize="sm" bsStyle="success" onClick={this.postToServer}>Share current state</Button>,
-                    <Button bsSize="sm" bsStyle="success" onClick={this.postToServer}>Save session</Button>,
+                <div>
+                    <Button bsSize="sm" bsStyle="success" onClick={this.postToServer}>Share current state</Button>
+                    <Button bsSize="sm" bsStyle="success" onClick={this.postToServer}>Save session</Button>
                     <Button bsSize="sm" bsStyle="success" onClick={this.postToServer}>Start new session</Button>
+                </div>
             )
         }
     }
