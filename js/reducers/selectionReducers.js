@@ -128,7 +128,6 @@ export default function selectionReducers(state = INITIALSTATE, action) {
             return  Object.assign({}, state, {
                 this_vector_list: {},
                 currentVector: undefined,
-                to_query: undefined,
                 to_query_pk: undefined,
                 to_query_prot: undefined,
                 to_query_sdf: undefined,
