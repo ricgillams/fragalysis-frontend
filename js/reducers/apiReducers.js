@@ -27,6 +27,8 @@ const INITIALSTATE = {
     latestFraggleBox: undefined,
     errorMessage: undefined,
     targetUnrecognised: undefined,
+    sessionUuid: "unsetSession",
+    snapshotUuid: "unsetSnapshot",
 }
 
 export default function apiReducers(state = INITIALSTATE, action) {
@@ -164,6 +166,16 @@ export default function apiReducers(state = INITIALSTATE, action) {
         case actions.SET_TARGET_UNRECOGNISED:
             return Object.assign({}, state, {
                 targetUnrecognised: action.targetUnrecognised
+            });
+
+        case actions.SET_SESSION_UUID:
+            return Object.assign({}, state, {
+                sessionUuid: action.uuid
+            });
+
+        case actions.SET_SNAPSHOT_UUID:
+            return Object.assign({}, state, {
+                snapshotUuid: action.uuid
             });
 
         case actions.RELOAD_API_STATE:

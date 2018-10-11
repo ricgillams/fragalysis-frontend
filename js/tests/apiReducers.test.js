@@ -30,6 +30,8 @@ function getInitialState(){
        latestFraggleBox: undefined,
        errorMessage: undefined,
        targetUnrecognised: undefined,
+       sessionUuid: "unsetSession",
+       snapshotUuid: "unsetSnapshot",
    }
 }
 
@@ -70,6 +72,8 @@ describe('API Redcuer', () => {
         latestFraggleBox: undefined,
         errorMessage: undefined,
         targetUnrecognised: undefined,
+        sessionUuid: "unsetSession",
+        snapshotUuid: "unsetSnapshot",
     })
       expect(apiReducers(undefined, {
           type: types.LOAD_TARGETS
@@ -98,6 +102,8 @@ describe('API Redcuer', () => {
               latestFraggleBox: undefined,
               errorMessage: undefined,
               targetUnrecognised: undefined,
+              sessionUuid: "unsetSession",
+              snapshotUuid: "unsetSnapshot",
           }
       )
   })
@@ -130,6 +136,8 @@ describe('API Redcuer', () => {
             latestFraggleBox: undefined,
             errorMessage: undefined,
             targetUnrecognised: undefined,
+            sessionUuid: "unsetSession",
+            snapshotUuid: "unsetSnapshot",
         }
     )
       expect(apiReducers(undefined, {
@@ -161,6 +169,8 @@ describe('API Redcuer', () => {
           latestFraggleBox: undefined,
           errorMessage: undefined,
           targetUnrecognised: undefined,
+          sessionUuid: "unsetSession",
+          snapshotUuid: "unsetSnapshot",
       }
     )
   })
@@ -194,6 +204,8 @@ describe('API Redcuer', () => {
             target_on_name: undefined,
             errorMessage: undefined,
             targetUnrecognised: undefined,
+            sessionUuid: "unsetSession",
+            snapshotUuid: "unsetSnapshot",
         }
     )
       expect(apiReducers(undefined, {
@@ -224,6 +236,8 @@ describe('API Redcuer', () => {
           latestFraggleBox: undefined,
           errorMessage: undefined,
           targetUnrecognised: undefined,
+          sessionUuid: "unsetSession",
+          snapshotUuid: "unsetSnapshot",
       }
     )
   })

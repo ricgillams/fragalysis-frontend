@@ -27,6 +27,8 @@ import {
     SET_LATEST_FRAGGLE_BOX,
     SET_ERROR_MESSAGE,
     SET_TARGET_UNRECOGNISED,
+    SET_SESSION_UUID,
+    SET_SNAPSHOT_UUID, SET_UUID,
 } from "./actonTypes";
 
 export const loadTargets = function (project_id=undefined) {
@@ -226,6 +228,22 @@ export const setTargetUnrecognised = function (bool) {
         type: SET_TARGET_UNRECOGNISED,
         targetUnrecognised: bool
     };
+}
+
+export const setSessionUuid = function (uuid){
+        console.log("ACTIONS: Session " + uuid);
+    return {
+        type: SET_SESSION_UUID,
+        uuid: uuid,
+    }
+}
+
+export const setSnapshotUuid = function (uuid){
+        console.log("ACTIONS: Snapshot " + uuid);
+    return {
+        type: SET_SNAPSHOT_UUID,
+        uuid: uuid,
+    }
 }
 
 export const reloadApiState = function (apiReducers) {

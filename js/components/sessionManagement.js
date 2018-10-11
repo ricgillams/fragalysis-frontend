@@ -27,12 +27,18 @@ export class SessionManagement extends React.Component {
         this.postToServer = this.postToServer.bind(this);
         this.handleJson = this.handleJson.bind(this);
         this.getCookie = this.getCookie.bind(this);
+        this.generateUuid = this.generateUuid.bind(this);
         this.newSession = this.newSession.bind(this);
         this.saveSession = this.saveSession.bind(this);
         this.saveSnapshot = this.saveSnapshot.bind(this);
         this.state = {
             saveType: ""
         };
+    }
+
+    generateUuid(){
+        const uuidv4 = require('uuid/v4');
+        return uuidv4();
     }
 
     updateFraggleBox(myJson){
@@ -122,10 +128,9 @@ export class SessionManagement extends React.Component {
             const csrfToken = this.getCookie("csrftoken");
             var fullState = {"state": store};
             if (this.state.saveType == "ongoingSession") {
-                var uuidString = this.props.uuid;
+                var uuidString = this.props.sessionUuid;
             } else {
-                const uuidv4 = require('uuid/v4');
-                var uuidString = uuidv4()
+                var uuidString = this.generateUuid();
             }
             var title = 'need to define title';
             var username = DJANGO_CONTEXT["username"];
@@ -173,6 +178,7 @@ function mapStateToProps(state) {
       nglOrientations: state.nglReducers.present.nglOrientations,
       savingState: state.apiReducers.present.savingState,
       uuid: state.nglReducers.present.uuid,
+      sessionUuid: state.apiReducers.present.sessionUuid,
   }
 }
 const mapDispatchToProps = {
@@ -187,5 +193,7 @@ const mapDispatchToProps = {
     selectVector: selectionActions.selectVector,
     setStageColor: nglLoadActions.setStageColor,
     setCompoundClasses: selectionActions.setCompoundClasses,
+    setSessionUuid: apiActions.setSessionUuid,
+    setSnapshotUuid: apiActions.setSnapshotUuid,
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionManagement));
