@@ -52,12 +52,12 @@ export class SessionManagement extends React.Component {
     newSession(){
         var newSessionUuid = this.generateUuid();
         this.props.setSessionUuid(newSessionUuid);
-        this.setState(prevState => ({saveType: "session"}));
+        this.setState(prevState => ({saveType: "sessionNew"}));
         this.postToServer();
     }
 
     saveSession(){
-        this.setState(prevState => ({saveType: "session"}));
+        this.setState(prevState => ({saveType: "sessionSave"}));
         this.postToServer();
     }
 
@@ -131,34 +131,50 @@ export class SessionManagement extends React.Component {
             var store = JSON.stringify(getStore().getState());
             const csrfToken = this.getCookie("csrftoken");
             var fullState = {"state": store};
-            if (this.state.saveType == "session") {
-                var uuidString = this.props.sessionUuid;
-            } else {
+            if (this.state.saveType == "snapshot") {
                 var uuidString = this.props.snapshotUuid;
+            } else {
+                var uuidString = this.props.sessionUuid;
             }
             var title = 'need to define title';
             var username = DJANGO_CONTEXT["username"];
             var formattedState = {
                 uuid: uuidString,
                 title: title,
-                sessionAuthor: username,
+                user_id: username,
                 scene: JSON.stringify(JSON.stringify(fullState))
             };
-            fetch("/api/viewscene/", {
-                method: "post",
-                headers: {
-                    'X-CSRFToken': csrfToken,
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formattedState)
-            }).then(function (response) {
-                return response.json();
-            }).then((myJson) => {
-                this.updateFraggleBox(myJson);
-            }).catch((error) => {
-                this.deployErrorModal(error);
-            });
+            if (this.state.saveType == "sessionSave") {
+                fetch("/api/viewscene/update/", {
+                    method: "post",
+                    headers: {
+                        'X-CSRFToken': csrfToken,
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formattedState)
+                }).then(function (response) {
+                    this.props.setSavingState(false);
+                }).catch((error) => {
+                    this.deployErrorModal(error);
+                });
+            } else {
+                fetch("/api/viewscene/", {
+                    method: "post",
+                    headers: {
+                        'X-CSRFToken': csrfToken,
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formattedState)
+                }).then(function (response) {
+                    return response.json();
+                }).then((myJson) => {
+                    this.updateFraggleBox(myJson);
+                }).catch((error) => {
+                    this.deployErrorModal(error);
+                });
+            }
         }
     }
 
