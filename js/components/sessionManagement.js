@@ -146,7 +146,7 @@ export class SessionManagement extends React.Component {
             };
             if (this.state.saveType == "sessionSave") {
                 fetch("/api/viewscene/", {
-                    method: "put",
+                    method: "patch",
                     headers: {
                         'X-CSRFToken': csrfToken,
                         'Accept': 'application/json',
