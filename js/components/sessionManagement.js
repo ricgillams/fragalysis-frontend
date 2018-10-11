@@ -50,12 +50,14 @@ export class SessionManagement extends React.Component {
     }
 
     newSession(){
-        this.setState(prevState => ({saveType: "newSession"}));
+        var newSessionUuid = this.generateUuid();
+        this.props.setSessionUuid(newSessionUuid);
+        this.setState(prevState => ({saveType: "session"}));
         this.postToServer();
     }
 
     saveSession(){
-        this.setState(prevState => ({saveType: "ongoingSession"}));
+        this.setState(prevState => ({saveType: "session"}));
         this.postToServer();
     }
 
@@ -162,13 +164,23 @@ export class SessionManagement extends React.Component {
         if (this.props.savingState == true) {
             return <RingLoader className={override} sizeUnit={"px"} size={30} color={'#7B36D7'} loading={this.props.savingState}/>
         } else {
-            return (
-                <div>
-                    <Button bsSize="sm" bsStyle="success" onClick={this.saveSnapshot}>Share current state</Button>
-                    <Button bsSize="sm" bsStyle="success" onClick={this.saveSession}>Save session</Button>
-                    <Button bsSize="sm" bsStyle="success" onClick={this.newSession}>Start new session</Button>
-                </div>
-            )
+            if (this.props.sessionUuid == undefined) {
+                return (
+                    <div>
+                        <Button bsSize="sm" bsStyle="success" onClick={this.saveSnapshot}>Share current state</Button>
+                        <Button bsSize="sm" bsStyle="success" onClick={this.newSession}>Start new session</Button>
+                        <Button bsSize="sm" bsStyle="success" disabled>Save session</Button>
+                    </div>
+                )
+            } else {
+                return (
+                    <div>
+                        <Button bsSize="sm" bsStyle="success" onClick={this.saveSnapshot}>Share current state</Button>
+                        <Button bsSize="sm" bsStyle="success" onClick={this.newSession}>Start new session</Button>
+                        <Button bsSize="sm" bsStyle="success" onClick={this.saveSession}>Save session</Button>
+                    </div>
+                )
+            }
         }
     }
 }
