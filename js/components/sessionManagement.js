@@ -154,7 +154,9 @@ export class SessionManagement extends React.Component {
                     },
                     body: JSON.stringify(formattedState)
                 }).then(function (response) {
-                    this.props.setSavingState(false);
+                    return response.json();
+                }).then((myJson) => {
+                    this.updateFraggleBox(myJson);
                 }).catch((error) => {
                     this.deployErrorModal(error);
                 });
