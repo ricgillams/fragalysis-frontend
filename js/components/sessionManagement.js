@@ -164,7 +164,7 @@ export class SessionManagement extends React.Component {
         if (this.props.savingState == true) {
             return <RingLoader className={override} sizeUnit={"px"} size={30} color={'#7B36D7'} loading={this.props.savingState}/>
         } else {
-            if (this.props.sessionUuid == undefined) {
+            if (this.props.sessionUuid == "unsetSession") {
                 return (
                     <div>
                         <Button bsSize="sm" bsStyle="success" onClick={this.saveSnapshot}>Share current state</Button>
