@@ -136,7 +136,7 @@ export class SessionManagement extends React.Component {
             } else {
                 var uuidString = this.props.sessionUuid;
             }
-            var title = 'need to define title';
+            var title = 'no title defined';
             var username = DJANGO_CONTEXT["username"];
             var formattedState = {
                 uuid: uuidString,
@@ -145,8 +145,8 @@ export class SessionManagement extends React.Component {
                 scene: JSON.stringify(JSON.stringify(fullState))
             };
             if (this.state.saveType == "sessionSave") {
-                fetch("/api/viewscene/update/", {
-                    method: "post",
+                fetch("/api/viewscene/", {
+                    method: "put",
                     headers: {
                         'X-CSRFToken': csrfToken,
                         'Accept': 'application/json',
