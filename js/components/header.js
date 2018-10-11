@@ -78,11 +78,11 @@ class Header extends React.Component {
                 </h4>
             </Navbar.Brand>
         </Navbar.Header>
-        <NavItem>
-            <SessionManagement />
-        </NavItem>
+        {/*<NavItem>*/}
+        {/*</NavItem>*/}
         <Nav pullLeft>
             {new_ele}
+            <SessionManagement />
         </Nav>
         <Nav pullRight>
             <NavItem>
