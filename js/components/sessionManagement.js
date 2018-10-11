@@ -113,8 +113,8 @@ export class SessionManagement extends React.Component {
 
     componentDidUpdate() {
         var hasBeenRefreshed = true
-        if (this.props.uuid!="UNSET") {
-            fetch("/api/viewscene/?uuid="+this.props.uuid)
+        if (this.props.sessionUuid!="unsetSession") {
+            fetch("/api/viewscene/?uuid="+this.props.sessionUuid)
                 .then(function(response) {
                     return response.json();
                 }).then(json => this.handleJson(json.results[0]))
