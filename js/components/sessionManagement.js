@@ -62,7 +62,9 @@ export class SessionManagement extends React.Component {
     }
 
     saveSnapshot(){
-        this.setState(prevState => ({saveType: "saveSnapshot"}));
+        var newSnapshotUuid = this.generateUuid();
+        this.props.setSnapshotUuid(newSnapshotUuid);
+        this.setState(prevState => ({saveType: "snapshot"}));
         this.postToServer();
     }
 
@@ -129,10 +131,10 @@ export class SessionManagement extends React.Component {
             var store = JSON.stringify(getStore().getState());
             const csrfToken = this.getCookie("csrftoken");
             var fullState = {"state": store};
-            if (this.state.saveType == "ongoingSession") {
+            if (this.state.saveType == "session") {
                 var uuidString = this.props.sessionUuid;
             } else {
-                var uuidString = this.generateUuid();
+                var uuidString = this.props.snapshotUuid;
             }
             var title = 'need to define title';
             var username = DJANGO_CONTEXT["username"];
