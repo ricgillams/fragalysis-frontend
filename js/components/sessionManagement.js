@@ -29,6 +29,7 @@ export class SessionManagement extends React.Component {
         this.getCookie = this.getCookie.bind(this);
         this.newSession = this.newSession.bind(this);
         this.saveSession = this.saveSession.bind(this);
+        this.saveSnapshot = this.saveSnapshot.bind(this);
         this.state = {
             saveType: ""
         };
