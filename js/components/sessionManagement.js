@@ -30,7 +30,7 @@ export class SessionManagement extends React.Component {
         this.newSession = this.newSession.bind(this);
         this.saveSession = this.saveSession.bind(this);
         this.state = {
-            saveType: undefined
+            saveType: ""
         };
     }
 
