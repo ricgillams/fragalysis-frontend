@@ -71,20 +71,22 @@ class Header extends React.Component {
       }
 
     return <Navbar>
-          <Navbar.Header>
-              <Navbar.Brand>
-                  <h4>
-                      <a  href={landing}>FragalysisHome</a>
-                  </h4>
-              </Navbar.Brand>
-          </Navbar.Header>
+        <Navbar.Header>
+            <Navbar.Brand>
+                <h4>
+                    <a  href={landing}>FragalysisHome</a>
+                </h4>
+            </Navbar.Brand>
+        </Navbar.Header>
+        <NavItem>
+            <SessionManagement />
+        </NavItem>
         <Nav pullLeft>
             {new_ele}
         </Nav>
         <Nav pullRight>
             <NavItem>
                 <ErrorReport />
-                <SessionManagement />
             </NavItem>
         </Nav>
         <TargetList key="TARGLIST" render={false}/>
