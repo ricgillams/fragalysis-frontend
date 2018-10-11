@@ -29,6 +29,9 @@ export class SessionManagement extends React.Component {
         this.getCookie = this.getCookie.bind(this);
         this.newSession = this.newSession.bind(this);
         this.saveSession = this.saveSession.bind(this);
+        this.state = {
+            saveType: undefined
+        };
     }
 
     updateFraggleBox(myJson){
@@ -40,9 +43,18 @@ export class SessionManagement extends React.Component {
     }
 
     newSession(){
+        this.setState(prevState => ({saveType: "newSession"}));
+        this.postToServer();
     }
 
-    saveSession(uuid){
+    saveSession(){
+        this.setState(prevState => ({saveType: "ongoingSession"}));
+        this.postToServer();
+    }
+
+    saveSnapshot(){
+        this.setState(prevState => ({saveType: "saveSnapshot"}));
+        this.postToServer();
     }
 
     postToServer() {
@@ -108,11 +120,16 @@ export class SessionManagement extends React.Component {
             var store = JSON.stringify(getStore().getState());
             const csrfToken = this.getCookie("csrftoken");
             var fullState = {"state": store};
-            const uuidv4 = require('uuid/v4');
+            if (this.state.saveType == "ongoingSession") {
+                var uuidString = this.props.uuid;
+            } else {
+                const uuidv4 = require('uuid/v4');
+                var uuidString = uuidv4()
+            }
             var title = 'need to define title';
             var username = DJANGO_CONTEXT["username"];
             var formattedState = {
-                uuid: uuidv4(),
+                uuid: uuidString,
                 title: title,
                 sessionAuthor: username,
                 scene: JSON.stringify(JSON.stringify(fullState))
@@ -141,9 +158,9 @@ export class SessionManagement extends React.Component {
         } else {
             return (
                 <div>
-                    <Button bsSize="sm" bsStyle="success" onClick={this.postToServer}>Share current state</Button>
-                    <Button bsSize="sm" bsStyle="success" onClick={this.postToServer}>Save session</Button>
-                    <Button bsSize="sm" bsStyle="success" onClick={this.postToServer}>Start new session</Button>
+                    <Button bsSize="sm" bsStyle="success" onClick={this.saveSnapshot}>Share current state</Button>
+                    <Button bsSize="sm" bsStyle="success" onClick={this.saveSession}>Save session</Button>
+                    <Button bsSize="sm" bsStyle="success" onClick={this.newSession}>Start new session</Button>
                 </div>
             )
         }
