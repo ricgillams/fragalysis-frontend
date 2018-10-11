@@ -54,8 +54,7 @@ export class SessionManagement extends React.Component {
     }
 
     saveSnapshot(){
-        var newSaveType = "saveSnapshot";
-        this.setState(prevState => ({saveType: newSaveType}));
+        this.setState(prevState => ({saveType: "saveSnapshot"}));
         this.postToServer();
     }
 
