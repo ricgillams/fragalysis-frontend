@@ -211,6 +211,7 @@ function mapStateToProps(state) {
       savingState: state.apiReducers.present.savingState,
       uuid: state.nglReducers.present.uuid,
       sessionUuid: state.apiReducers.present.sessionUuid,
+      snapshotUuid: state.apiReducers.present.snapshotUuid,
   }
 }
 const mapDispatchToProps = {
