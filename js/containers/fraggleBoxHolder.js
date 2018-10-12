@@ -14,6 +14,7 @@ import NGLView from "../components/nglComponents";
 import NglViewerControls from "../components/nglViewerControls";
 import {withRouter} from "react-router-dom";
 import * as nglLoadActions from "../actions/nglLoadActions";
+import * as apiActions from "../actions/apiActions";
 import ModalLoadingScreen from "../components/modalLoadingScreen";
 import ModalStateSave from "../components/modalStateSave";
 import ModalErrorMessage from "../components/modalErrorDisplay";
