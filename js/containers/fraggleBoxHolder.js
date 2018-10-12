@@ -27,7 +27,7 @@ class FraggleBox extends Component {
 
     componentDidMount(){
         var uuid = this.props.match.params.uuid;
-        this.props.setUuid(uuid);
+        this.props.setSessionUuid(uuid);
         // this.props.setStageColor
         // this.updateTarget();
     }
@@ -67,6 +67,7 @@ function mapStateToProps(state) {
 }
 const mapDispatchToProps = {
     setUuid: nglLoadActions.setUuid,
+    setSessionUuid: apiActions.setSessionUuid,
 }
 
 
