@@ -60,7 +60,9 @@ export class ModalStateSave extends React.Component {
             return (
                 <ReactModal isOpen={this.props.savingState} style={customStyles}>
                     <div>
-                        <h3>State can be viewed at: {window.location.protocol}//{window.location.hostname}/viewer/react/fragglebox/{this.props.latestFraggleBox.slice(1, -1)}</h3>
+                        <h4>State can be viewed at: {window.location.protocol}//{window.location.hostname}/viewer/react/fragglebox/{this.props.latestFraggleBox.slice(1, -1)}</h4>
+                        <h4>State can be viewed at: {window.location.protocol}//{window.location.hostname}/viewer/react/fragglebox/{this.props.snapshotUuid.slice(1, -1)}</h4>
+                        <h4>Session can be viewed at: {window.location.protocol}//{window.location.hostname}/viewer/react/fragglebox/{this.props.sessionUuid.slice(1, -1)}</h4>
                         <CopyToClipboard text={window.location.protocol + "//" + window.location.hostname + "/viewer/react/fragglebox/" + this.props.latestFraggleBox.slice(1, -1)} >
                             <Button bsSize="large" bsStyle="success" >Copy FraggleLink</Button>
                         </CopyToClipboard>
@@ -79,6 +81,8 @@ function mapStateToProps(state) {
     return {
         savingState: state.apiReducers.present.savingState,
         latestFraggleBox: state.apiReducers.present.latestFraggleBox,
+        sessionUuid: state.apiReducers.present.sessionUuid,
+        snapshotUuid: state.apiReducers.present.snapshotUuid,
     }
 }
 
