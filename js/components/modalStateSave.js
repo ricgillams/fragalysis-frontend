@@ -23,7 +23,6 @@ const customStyles = {
         transform: 'translate(-50%, -50%)',
         border: '10px solid #7a7a7a'
     }
-
 };
 
 export class ModalStateSave extends React.Component {
