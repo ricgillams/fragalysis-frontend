@@ -110,13 +110,13 @@ class Header extends React.Component {
             <Navbar.Header>
                 {navbarBrand}
             </Navbar.Header>
-            <Nav pullLeft>
+            <Nav>
                 {new_ele}
                 <NavItem>
                     <SessionManagement/>
                 </NavItem>
             </Nav>
-            <Nav pullRight>
+            <Nav>
                 <NavItem>
                     <Row>
                         <img src={require('../img/xchemLogo.png')} width="67" height="31" onClick={this.openXchem}/> <img src={require('../img/dlsLogo.png')} width="100" height="31" onClick={this.openDiamond}/> <img src={require('../img/sgcLogo.png')} width="65" height="31" onClick={this.openSgc}/> <ErrorReport/>
