@@ -109,7 +109,7 @@ class Header extends React.Component {
 
         return <Navbar fluid>
             <Col xs={1} md={1}></Col>
-            <Col xs={10} md={10}>
+            <Col xs={11} md={11}>
                 <Navbar.Header>
                     {navbarBrand}
                 </Navbar.Header>
