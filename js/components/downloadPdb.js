@@ -43,7 +43,7 @@ class DownloadPdb extends React.Component{
 
     render() {
         return <ButtonToolbar>
-            <Button bsSize="sm" bsStyle="success" onClick={this.handlePdbDownload}>Download all PBDs for target</Button>
+            <Button bsSize="sm" bsStyle="info" onClick={this.handlePdbDownload}>Download {this.props.targetOn.toString()} structures</Button>
         </ButtonToolbar>
     }
 }

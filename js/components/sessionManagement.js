@@ -14,6 +14,7 @@ import * as selectionActions from "../actions/selectionActions";
 import {withRouter} from "react-router-dom";
 import * as listTypes from "./listTypes";
 import * as nglObjectTypes from "./nglObjectTypes";
+import DownloadPdb from "./downloadPdb";
 
 const override = css`
     display: block;
@@ -364,9 +365,10 @@ export class SessionManagement extends React.Component {
             if (this.props.sessionTitle == undefined || this.props.sessionTitle == "undefined") {
                 buttons = <div>
                     <ButtonToolbar>
-                        <Button bsSize="sm" bsStyle="success" disabled>Save Session</Button>
-                        <Button bsSize="sm" bsStyle="success" onClick={this.newSession}>Save Session As...</Button>
-                        <Button bsSize="sm" bsStyle="success" onClick={this.newSnapshot}>Share Snapshot</Button>
+                        <Button bsSize="sm" bsStyle="primary" disabled>Save Session</Button>
+                        <Button bsSize="sm" bsStyle="primary" onClick={this.newSession}>Save Session As...</Button>
+                        <Button bsSize="sm" bsStyle="primary" onClick={this.newSnapshot}>Share Snapshot</Button>
+                        <DownloadPdb/>
                     </ButtonToolbar>
                     <Row>
                         <p>Currently no active session.</p>
@@ -375,9 +377,10 @@ export class SessionManagement extends React.Component {
             } else {
                 buttons = <div>
                     <ButtonToolbar>
-                        <Button bsSize="sm" bsStyle="success" onClick={this.saveSession}>Save Session</Button>
-                        <Button bsSize="sm" bsStyle="success" onClick={this.newSession}>Save Session As...</Button>
-                        <Button bsSize="sm" bsStyle="success" onClick={this.newSnapshot}>Share Snapshot</Button>
+                        <Button bsSize="sm" bsStyle="primary" onClick={this.saveSession}>Save Session</Button>
+                        <Button bsSize="sm" bsStyle="primary" onClick={this.newSession}>Save Session As...</Button>
+                        <Button bsSize="sm" bsStyle="primary" onClick={this.newSnapshot}>Share Snapshot</Button>
+                        <DownloadPdb/>
                     </ButtonToolbar>
                     <Row>
                         <p>Session: {this.props.sessionTitle}</p>
