@@ -44,12 +44,12 @@ class DownloadPdb extends React.Component{
     render() {
         if (this.props.targetOnName == undefined) {
             return <ButtonToolbar>
-                <Button bsSize="sm" bsStyle="info"
+                <Button bsSize="sm" bsStyle="warning"
                         onClick={this.handlePdbDownload}>Download all structures</Button>
             </ButtonToolbar>
         } else {
             return <ButtonToolbar>
-                <Button bsSize="sm" bsStyle="info"
+                <Button bsSize="sm" bsStyle="warning"
                         onClick={this.handlePdbDownload}>Download {this.props.targetOnName.toString()} structures</Button>
             </ButtonToolbar>
         }

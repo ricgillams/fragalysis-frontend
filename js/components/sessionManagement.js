@@ -363,9 +363,9 @@ export class SessionManagement extends React.Component {
             if (this.props.sessionTitle == undefined || this.props.sessionTitle == "undefined") {
                 buttons = <div>
                     <ButtonToolbar>
-                        <Button bsSize="sm" bsStyle="warning" disabled>Save Session</Button>
-                        <Button bsSize="sm" bsStyle="danger" onClick={this.newSession}>Save Session As...</Button>
-                        <Button bsSize="sm" onClick={this.newSnapshot}>Share Snapshot</Button>
+                        <Button bsSize="sm" bsStyle="info" disabled>Save Session</Button>
+                        <Button bsSize="sm" bsStyle="info" onClick={this.newSession}>Save Session As...</Button>
+                        <Button bsSize="sm" bsStyle="info" onClick={this.newSnapshot}>Share Snapshot</Button>
                         <DownloadPdb/>
                     </ButtonToolbar>
                     <Row>
@@ -375,9 +375,9 @@ export class SessionManagement extends React.Component {
             } else {
                 buttons = <div>
                     <ButtonToolbar>
-                        <Button bsSize="sm" bsStyle="warning" onClick={this.saveSession}>Save Session</Button>
-                        <Button bsSize="sm" bsStyle="danger" onClick={this.newSession}>Save Session As...</Button>
-                        <Button bsSize="sm" onClick={this.newSnapshot}>Share Snapshot</Button>
+                        <Button bsSize="sm" bsStyle="info" onClick={this.saveSession}>Save Session</Button>
+                        <Button bsSize="sm" bsStyle="info" onClick={this.newSession}>Save Session As...</Button>
+                        <Button bsSize="sm" bsStyle="info" onClick={this.newSnapshot}>Share Snapshot</Button>
                         <DownloadPdb/>
                     </ButtonToolbar>
                     <Row>
