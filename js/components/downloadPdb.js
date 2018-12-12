@@ -51,8 +51,7 @@ class DownloadPdb extends React.Component {
 
     render() {
         if (this.props.targetOnName == undefined) {
-            return <RingLoader className={override} sizeUnit={"px"} size={30} color={'#7B36D7'}
-                               loading={(this.props.savingState.startsWith("saving") || this.props.savingState.startsWith("overwriting"))}/>
+            return <RingLoader className={override} sizeUnit={"px"} size={30} color={'#7B36D7'} loading={true}/>
         } else {
             return <Button bsSize="sm" bsStyle="warning"
                            onClick={this.handlePdbDownload}>Download {this.props.targetOnName.toString()} structures</Button>
