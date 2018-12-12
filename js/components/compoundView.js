@@ -141,7 +141,6 @@ class CompoundView extends GenericView {
             current_style = Object.assign(current_style, this.conf_on_style)
         }
         if(this.state.isHighlighted==true){
-        if(this.state.isHighlighted==true){
             current_style = Object.assign(current_style, this.highlightedCompStyle)
         }
         if(this.state.compoundClass!=0){
