@@ -109,9 +109,9 @@ class Header extends React.Component {
         return <Navbar>
             <Navbar.Header>
                 {navbarBrand}
-                {new_ele}
             </Navbar.Header>
             <Nav pullLeft>
+                {new_ele}
                 <NavItem>
                     <SessionManagement/>
                 </NavItem>
