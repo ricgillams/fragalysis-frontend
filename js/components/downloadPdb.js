@@ -9,6 +9,12 @@ import fetch from "cross-fetch";
 import FileSaver from "file-saver";
 import { RingLoader } from 'react-spinners';
 
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
+
 class DownloadPdb extends React.Component {
     constructor(props) {
         super(props);
