@@ -106,7 +106,7 @@ class Header extends React.Component {
             </Navbar.Brand>
         }
 
-        return <Navbar>
+        return <Navbar fluid>
             <Navbar.Header>
                 {navbarBrand}
             </Navbar.Header>
