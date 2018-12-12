@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {Button, ButtonToolbar} from "react-bootstrap";
 import fetch from "cross-fetch";
 import FileSaver from "file-saver";
+import { RingLoader } from 'react-spinners';
 
 class DownloadPdb extends React.Component {
     constructor(props) {
@@ -43,8 +44,8 @@ class DownloadPdb extends React.Component {
 
     render() {
         if (this.props.targetOnName == undefined) {
-            return <Button bsSize="sm" bsStyle="warning" onClick={this.handlePdbDownload}>Download all
-                structures</Button>
+            return <RingLoader className={override} sizeUnit={"px"} size={30} color={'#7B36D7'}
+                               loading={(this.props.savingState.startsWith("saving") || this.props.savingState.startsWith("overwriting"))}/>
         } else {
             return <Button bsSize="sm" bsStyle="warning"
                            onClick={this.handlePdbDownload}>Download {this.props.targetOnName.toString()} structures</Button>
