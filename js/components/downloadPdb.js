@@ -7,14 +7,6 @@ import {connect} from "react-redux";
 import {Button, ButtonToolbar} from "react-bootstrap";
 import fetch from "cross-fetch";
 import FileSaver from "file-saver";
-import { RingLoader } from 'react-spinners';
-import { css } from 'react-emotion';
-
-const override = css`
-    display: block;
-    margin: 0 auto;
-    border-color: red;
-`;
 
 class DownloadPdb extends React.Component {
     constructor(props) {
@@ -51,7 +43,7 @@ class DownloadPdb extends React.Component {
 
     render() {
         if (this.props.targetOnName == undefined) {
-            return <RingLoader className={override} sizeUnit={"px"} size={30} color={'#7B36D7'} loading={true}/>
+            return <Button bsSize="sm" bsStyle="warning" onClick={this.handlePdbDownload}>loading...</Button>
         } else {
             return <Button bsSize="sm" bsStyle="warning"
                            onClick={this.handlePdbDownload}>Download {this.props.targetOnName.toString()} structures</Button>
