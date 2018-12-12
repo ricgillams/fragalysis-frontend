@@ -6,7 +6,7 @@ import React from "react";
 import {connect} from "react-redux";
 import * as nglLoadActions from "../actions/nglLoadActions";
 import * as apiActions from "../actions/apiActions";
-import {Button,  ButtonToolbar, Row} from "react-bootstrap";
+import {Button,  ButtonToolbar, Row, Col} from "react-bootstrap";
 import { css } from 'react-emotion';
 import { RingLoader } from 'react-spinners';
 import {getStore} from "../containers/globalStore";
@@ -361,7 +361,7 @@ export class SessionManagement extends React.Component {
         var buttons = "";
         if (pathname != "/viewer/react/landing" && pathname != "/viewer/react/funders" && pathname != "/viewer/react/sessions" && pathname != "/viewer/react/targetmanagement") {
             if (this.props.sessionTitle == undefined || this.props.sessionTitle == "undefined") {
-                buttons = <div>
+                buttons = <Col>
                     <ButtonToolbar>
                         <Button bsSize="sm" bsStyle="info" disabled>Save Session</Button>
                         <Button bsSize="sm" bsStyle="info" onClick={this.newSession}>Save Session As...</Button>
@@ -371,9 +371,9 @@ export class SessionManagement extends React.Component {
                     <Row>
                         <p>Currently no active session.</p>
                     </Row>
-                </div>
+                </Col>
             } else {
-                buttons = <div>
+                buttons = <Col>
                     <ButtonToolbar>
                         <Button bsSize="sm" bsStyle="info" onClick={this.saveSession}>Save Session</Button>
                         <Button bsSize="sm" bsStyle="info" onClick={this.newSession}>Save Session As...</Button>
@@ -383,7 +383,7 @@ export class SessionManagement extends React.Component {
                     <Row>
                         <p>Session: {this.props.sessionTitle}</p>
                     </Row>
-                </div>
+                </Col>
             }
         }
         if (this.props.savingState.startsWith("saving") || this.props.savingState.startsWith("overwriting")) {
