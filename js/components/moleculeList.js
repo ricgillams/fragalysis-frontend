@@ -2,7 +2,7 @@
  * Created by abradley on 14/03/2018.
  */
 
-import {Row, Well, Button} from "react-bootstrap";
+import {Row, Well} from "react-bootstrap";
 import {GenericList} from "./generalComponents";
 import React from "react";
 import {connect} from "react-redux";

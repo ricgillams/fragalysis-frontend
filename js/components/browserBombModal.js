@@ -56,12 +56,6 @@ export class BrowserBomb extends React.Component {
         this.checkBrowser()
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.errorMessage != undefined){
-            this.setState(prevState => ({errorMessage: nextProps.errorMessage}))
-        }
-    }
-
     render() {
         return (
             <ReactModal isOpen={this.state.notSupported} style={customStyles}>

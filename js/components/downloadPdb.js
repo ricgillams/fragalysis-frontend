@@ -24,7 +24,7 @@ class DownloadPdb extends React.Component{
         const pdbJson = await pdbResponse.json();
         const pdbInfo = pdbJson.results;
         var zip = new JSZip();
-        const timeOptions = {year:'numeric', month:'short', day:'2-digit'}
+        const timeOptions = {year:'numeric', month:'short', day:'2-digit'};
         var fName = this.props.targetOnName + "_allPdb_" + new Intl.DateTimeFormat('en-GB', timeOptions).format(Date.now()).replace(/\s/g, '-');
         var totFolder = zip.folder(fName);
         for(var structure in protInfo) {
@@ -33,7 +33,7 @@ class DownloadPdb extends React.Component{
             var molGroupUrl = window.location.protocol + "//" + window.location.host + "/api/molecules/?prot_id=" + pdbInfo[0].id;
             const molResponse = await fetch(molGroupUrl);
             const molJson = await molResponse.json();
-            const sdfData = molJson.results[0].sdf_info
+            const sdfData = molJson.results[0].sdf_info;
             totFolder.file(pdbCode+".pdb",pdbData);
             totFolder.file(pdbCode+".sdf",sdfData);
         }

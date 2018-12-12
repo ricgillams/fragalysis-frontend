@@ -287,7 +287,6 @@ export class SessionManagement extends React.Component {
             var newApiObject = Object.assign(stateObject.apiReducers, {present: newPresentObject});
             var newStateObject = Object.assign(JSON.parse(store), {apiReducers: newApiObject});
             var fullState = {state: JSON.stringify(newStateObject)};
-            hasBeenRefreshed = false;
             if (this.state.saveType == "sessionNew" && this.state.newSessionFlag == 1) {
                 this.setState(prevState => ({newSessionFlag: 0}));
                 var formattedState = {
@@ -312,7 +311,6 @@ export class SessionManagement extends React.Component {
                     this.deployErrorModal(error);
                 });
             } else if (this.state.saveType == "sessionSave") {
-                var uuid = this.props.latestSession;
                 var formattedState = {
                     scene: JSON.stringify(JSON.stringify(fullState))
                 };
