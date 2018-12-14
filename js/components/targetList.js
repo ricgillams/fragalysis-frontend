@@ -27,7 +27,7 @@ class TargetList extends GenericList {
         var sgcUrl = "https://thesgc.org/sites/default/files/XChem/"+data.title+"/html/index.html"
         return <ListGroupItem key={data.id} >
             <Link to={preview}>{data.title}</Link>
-            <h3>/ / / / / / / / / / / / / </h3>
+            <p style="display:inline">             </p>
             <a href={sgcUrl} target="new">Open SGC summary</a>
         </ListGroupItem>
     }
