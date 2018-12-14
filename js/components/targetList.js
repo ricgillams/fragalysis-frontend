@@ -31,7 +31,7 @@ class TargetList extends GenericList {
             console.log("page doesnt exist");
         }).then(function (response) {
             console.log("page exists");
-        }
+        })
         return <ListGroupItem key={data.id} >
             <Link to={preview} styles={{float: 'left'}}>{data.title}</Link>
             <p style={{display: 'inline'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
