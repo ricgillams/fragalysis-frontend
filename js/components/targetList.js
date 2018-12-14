@@ -19,23 +19,18 @@ class TargetList extends GenericList {
         this.render_method = this.render_method.bind(this);
         this.generateTargetObject = this.generateTargetObject.bind(this);
         this.checkForTargetChange = this.checkForTargetChange.bind(this);
-        this.handleOpenSgc = this.handleOpenSgc.bind(this);
         this.origTarget = -1;
-    }
-
-    handleOpenSgc(title) {
-        var url = "https://thesgc.org/sites/default/files/XChem/"+name+"/html/index.html"
-        window.open(url);
     }
 
     render_method(data) {
         var preview = "/viewer/react/preview/target/" + data.title;
+        var sgcUrl = "https://thesgc.org/sites/default/files/XChem/"+data.title+"/html/index.html"
         return <ListGroupItem key={data.id} >
             <Col xs={5} md={5}>
                 <Link to={preview}>{data.title}</Link>
             </Col>
             <Col xs={7} md={7}>
-                <Button bsSize="sm" bsStyle="info" onClick={this.handleOpenSgc(data.title)}>Open SGC summary</Button>
+                <Link to={sgcUrl}>Open SGC summary</Link>
             </Col>
         </ListGroupItem>
     }
