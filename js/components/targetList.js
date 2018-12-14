@@ -28,8 +28,8 @@ class TargetList extends GenericList {
         return <ListGroupItem key={data.id} >
             <Link to={preview} styles={{float: 'left'}}>{data.title}</Link>
             {/*<span className="myClass" styles={{float : 'left', paddingRight : '5px'}} > </span>*/}
-            <div style={{display: 'inline-block'}}></div>
-            {/*<p styles={{display: 'inline'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>*/}
+            {/*<div style={{display: 'inline-block'}}></div>*/}
+            <p style={{display: 'inline'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             <a href={sgcUrl} target="new" styles={{float: 'right'}}>Open SGC summary</a>
         </ListGroupItem>
     }
