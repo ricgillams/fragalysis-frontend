@@ -2,7 +2,7 @@
  * Created by abradley on 13/03/2018.
  */
 
-import {ListGroupItem, ListGroup} from "react-bootstrap";
+import {ListGroupItem, ListGroup, Button} from "react-bootstrap";
 import {GenericList} from "./generalComponents";
 import React from "react";
 import {connect} from "react-redux";
@@ -19,13 +19,24 @@ class TargetList extends GenericList {
         this.render_method = this.render_method.bind(this);
         this.generateTargetObject = this.generateTargetObject.bind(this);
         this.checkForTargetChange = this.checkForTargetChange.bind(this);
+        this.handleOpenSgc = this.handleOpenSgc.bind(this);
         this.origTarget = -1;
+    }
+
+    handleOpenSgc(title) {
+        url = "https://thesgc.org/sites/default/files/XChem/"+name+"/html/index.html"
+        window.open(url);
     }
 
     render_method(data) {
         var preview = "/viewer/react/preview/target/" + data.title;
         return <ListGroupItem key={data.id} >
-            <Link to={preview}>{data.title}</Link>
+            <Col xs={5} md={5}>
+                <Link to={preview}>{data.title}</Link>
+            </Col>
+            <Col xs={7} md={7}>
+                <Button bsSize="sm" bsStyle="info" onClick={this.handleOpenSgc(data.title)}>Open SGC summary</Button>
+            </Col>
         </ListGroupItem>
     }
 
