@@ -30,7 +30,7 @@ class TargetList extends GenericList {
                 <Link to={preview}>{data.title}</Link>
             </Col>
             <Col xs={7} md={7}>
-                <Link to={sgcUrl}>Open SGC summary</Link>
+                <Link to={sgcUrl} target="new">Open SGC summary</Link>
             </Col>
         </ListGroupItem>
     }
