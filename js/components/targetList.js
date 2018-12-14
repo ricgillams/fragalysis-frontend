@@ -24,7 +24,7 @@ class TargetList extends GenericList {
     }
 
     handleOpenSgc(title) {
-        url = "https://thesgc.org/sites/default/files/XChem/"+name+"/html/index.html"
+        var url = "https://thesgc.org/sites/default/files/XChem/"+name+"/html/index.html"
         window.open(url);
     }
 
