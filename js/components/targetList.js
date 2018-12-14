@@ -26,12 +26,8 @@ class TargetList extends GenericList {
         var preview = "/viewer/react/preview/target/" + data.title;
         var sgcUrl = "https://thesgc.org/sites/default/files/XChem/"+data.title+"/html/index.html"
         return <ListGroupItem key={data.id} >
-            <Col xs={5} md={5}>
-                <Link to={preview}>{data.title}</Link>
-            </Col>
-            <Col xs={7} md={7}>
-                <a href={sgcUrl} target="new">Open SGC summary</a>
-            </Col>
+            <Link to={preview}>{data.title}</Link>
+            <a href={sgcUrl} target="new">Open SGC summary</a>
         </ListGroupItem>
     }
 
