@@ -37,9 +37,7 @@ class MoleculeView extends GenericView {
         return new URL(this.base_url + '/api/' + get_view + '/' + this.props.data.id + "/")
     }
 
-    /**
-     * Convert the JSON into a list of arrow objects
-     */
+    /*** Convert the JSON into a list of arrow objects*/
     generateObjectList(out_data) {
         var colour = [1,0,0]
         var deletions = out_data.deletions
