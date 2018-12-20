@@ -15,7 +15,7 @@ class HotspotList extends GenericList {
 
     constructor(props) {
         super(props);
-        this.list_type = listType.MOLECULE;
+        this.list_type = listType.HOTSPOT;
         this.hsCount = undefined;
         this.updateCount = this.updateCount.bind(this);
     }
