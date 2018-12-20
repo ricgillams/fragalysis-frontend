@@ -53,6 +53,10 @@ class Preview extends Component {
                 })
     }
 
+    componentWillMount() {
+        this.updateTarget()
+    }
+
     componentDidMount() {
         this.updateTarget()
     }

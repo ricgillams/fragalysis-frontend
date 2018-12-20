@@ -112,7 +112,6 @@ export class GenericList extends React.Component {
      */
     processResults(json) {
         this.afterPush(json);
-        console.log(json);
         if (this.list_type == listTypes.SESSIONS && this.props.seshListSaving == true) {this.props.setSeshListSaving(false)}
         return json;
     }
