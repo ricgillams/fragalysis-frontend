@@ -25,7 +25,7 @@ class MoleculeList extends GenericList {
     render() {
         const molStyle = {overflow:"scroll", height: this.props.height}
         var imgSize = window.innerWidth*0.1
-        if (this.props.object_list.length != 0) {
+        if (this.props != undefined && this.props.object_list) {
             console.log(this.props.message)
             return <Well>
                 <Row style={molStyle}>
