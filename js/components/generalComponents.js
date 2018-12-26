@@ -52,7 +52,7 @@ export class GenericList extends React.Component {
                 get_params.project_id = this.props.project_id
             }
         }
-        else if (this.list_type == listTypes.MOLGROUPS) {
+        else if (this.list_type == "MOLGROUPS") {
             if (this.props.target_on != undefined) {
                 get_params.target_id = this.props.target_on
                 base_url += "molgroup/"
