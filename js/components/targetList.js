@@ -88,10 +88,10 @@ class TargetList extends GenericList {
         setInterval(this.checkForTargetChange,50)
     }
 
-    handleOptionChange(changeEvent) {
-        this.props.setObjectOn(changeEvent.target.value);
-    }
-
+    // handleOptionChange(changeEvent) {
+    //     this.props.setObjectOn(changeEvent.target.value);
+    // }
+    //
     render() {
         if (this.props.render==false){
             return null;
