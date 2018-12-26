@@ -122,7 +122,7 @@ export class GenericList extends React.Component {
             this.beforePush();
             fetch(url)
                 .then(
-                    response => response.json(),
+                    response => JSON.parse(response.bodyText),
                     error => console.log('An error occurred.', error)
                 )
                 .then(
