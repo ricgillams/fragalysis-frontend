@@ -36,6 +36,8 @@ class DownloadPdb extends React.Component {
             var pdbCode = protInfo[structure].code;
             totFolder.file(pdbCode + ".pdb", pdbData);
         }
+        var readmeText = "If the structures are not included in this directory, it is most likely due to the data not having passed through the XChem pipeline. We are working to resolve this.";
+        totFolder.file("README", readmeText);
         const content = await zip.generateAsync({type: "blob"});
         FileSaver.saveAs(content, fName + ".zip");
         this.setState({"downloading": false});
