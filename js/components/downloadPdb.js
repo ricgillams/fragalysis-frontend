@@ -41,7 +41,7 @@ class DownloadPdb extends React.Component {
                 totFolder.file(pdbCode + ".pdb", pdbData);
             }
         }
-        var readmeText = "Structures may be missing if they were not processed through the XChem pipeline. We are working to resolve this.";
+        var readmeText = "Structures may be missing if they were not processed through the XChem pipeline. We are working to resolve this. Please contact support if this persists.";
         if (readmeRequired == true) {
             totFolder.file("README", readmeText);
         }
