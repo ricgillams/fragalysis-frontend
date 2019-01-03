@@ -35,10 +35,11 @@ class DownloadPdb extends React.Component {
         for (var structure in protInfo) {
             if (pdbInfo[structure].bound_pdb_data == null){
                 readmeRequired = true;
+            } else {
+                var pdbData = pdbInfo[structure].bound_pdb_data;
+                var pdbCode = protInfo[structure].code;
+                totFolder.file(pdbCode + ".pdb", pdbData);
             }
-            var pdbData = pdbInfo[structure].bound_pdb_data;
-            var pdbCode = protInfo[structure].code;
-            totFolder.file(pdbCode + ".pdb", pdbData);
         }
         var readmeText = "Structures may be missing if they were not processed through the XChem pipeline. We are working to resolve this.";
         if (readmeRequired == true) {
